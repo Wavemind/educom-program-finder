@@ -8,5 +8,7 @@ import { extendTheme } from '@chakra-ui/react'
  */
 import config from './foundations/config'
 import colors from './foundations/colors'
+import fontSizes from './foundations/fontSizes'
+import heading from './overrides/heading'
 
-export default extendTheme(config, colors)
+export default extendTheme(config, colors, fontSizes, heading)
