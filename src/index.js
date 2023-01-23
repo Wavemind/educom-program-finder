@@ -9,6 +9,7 @@ import { ChakraProvider } from '@chakra-ui/react'
  * The internal imports
  */
 import App from './App'
+import './i18n'
 import theme from './lib/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))

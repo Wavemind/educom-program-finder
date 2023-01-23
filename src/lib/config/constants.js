@@ -116,8 +116,8 @@ export const activities = [
       { label: 'Tennis', value: 'tennis' },
       { label: 'Voile', value: 'sailing' },
       { label: 'Water sports', value: 'waterSports' },
-    ]
-  }
+    ],
+  },
 ]
 
 export const period = [

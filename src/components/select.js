@@ -24,7 +24,7 @@ const Select = ({ options, placeholder, name, isMulti = false }) => {
           value={value}
           onChange={onChange}
           chakraStyles={{
-            control: (provided, state) => ({
+            control: provided => ({
               ...provided,
               background: 'primary',
               borderRadius: 'none',
@@ -42,16 +42,16 @@ const Select = ({ options, placeholder, name, isMulti = false }) => {
                 bg: 'secondary',
               },
             }),
-            indicatorsContainer: (provided, state) => ({
+            indicatorsContainer: provided => ({
               ...provided,
               background: 'transparent',
               px: 4,
             }),
-            downChevron: (provided, state) => ({
+            downChevron: provided => ({
               ...provided,
               boxSize: 8,
             }),
-            placeholder: (provided, state) => ({
+            placeholder: provided => ({
               ...provided,
               color: 'white',
             }),

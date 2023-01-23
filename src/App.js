@@ -1,7 +1,6 @@
 /**
  * The external imports
  */
-import { useMemo } from 'react'
 import {
   Box,
   Heading,
@@ -17,21 +16,22 @@ import { FormProvider, useForm } from 'react-hook-form'
  */
 import { Select } from './components'
 import * as constants from './lib/config/constants'
+import { useTranslation } from 'react-i18next'
 
 const App = () => {
   const methods = useForm()
+  const { t } = useTranslation('form')
 
   const onSubmit = data => {
+    // TODO : Figure out where to send the data
     console.log(data)
   }
 
   return (
     <Box w='full' h='100vh' bg='background' py={10} px={96}>
       <VStack spacing={8} w='full' mb={10}>
-        <Heading variant='h1'>Critères de recherche</Heading>
-        <Heading variant='h2'>
-          Choisissez mainenant les critères des programmes désirés :
-        </Heading>
+        <Heading variant='h1'>{t('header')}</Heading>
+        <Heading variant='h2'>{t('subheader')}</Heading>
       </VStack>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -39,59 +39,53 @@ const App = () => {
             <SimpleGrid columns={3} gap={10}>
               <Select
                 options={constants.ages}
-                placeholder="Age de l'enfant"
+                placeholder={t('fields.age')}
                 name='age'
               />
               <Select
                 options={constants.languages}
-                placeholder='Langue'
+                placeholder={t('fields.language')}
                 name='language'
               />
               <Select
                 options={constants.destinations}
-                placeholder='Destination'
+                placeholder={t('fields.destination')}
                 name='destination'
                 isMulti
               />
               <Select
                 options={constants.tripTypes}
-                placeholder='Types de séjours'
+                placeholder={t('fields.tripType')}
                 name='tripType'
               />
               <Select
                 options={constants.activities}
-                placeholder='Activités'
+                placeholder={t('fields.activities')}
                 name='activities'
                 isMulti
               />
               <Select
                 options={constants.period}
-                placeholder='Période'
+                placeholder={t('fields.period')}
                 name='period'
               />
             </SimpleGrid>
             <SimpleGrid columns={2} gap={10}>
               <Select
                 options={constants.duration}
-                placeholder='Durée du séjour'
+                placeholder={t('fields.duration')}
                 name='duration'
               />
               <Select
                 options={constants.exam}
-                placeholder='Examen'
+                placeholder={t('fields.exam')}
                 name='exam'
               />
             </SimpleGrid>
           </VStack>
           <HStack w='full' justifyContent='center' mt={10}>
-            <Button
-              type='submit'
-              borderRadius='full'
-              p={8}
-              color='secondary'
-              textTransform='uppercase'
-            >
-              Lancer la Recherche
+            <Button type='submit' variant='submit'>
+              {t('search')}
             </Button>
           </HStack>
         </form>
