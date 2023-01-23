@@ -1,3 +1,6 @@
+/**
+ * The external imports
+ */
 import { Box, Heading } from '@chakra-ui/layout'
 
 function App() {
