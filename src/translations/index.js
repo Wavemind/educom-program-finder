@@ -21,6 +21,7 @@ i18n.use(initReactI18next).init({
       {}
     ),
   },
+  // TODO : Align with wordpress to have the same default language
   lng: 'fr',
 })
 
