@@ -15,7 +15,7 @@ import {
   ADULT_EXAMS,
 } from '../lib/config/constants'
 
-const JuniorForm = () => {
+const AdultForm = () => {
   const methods = useForm()
   const { t } = useTranslation()
 
@@ -31,28 +31,28 @@ const JuniorForm = () => {
           <SimpleGrid columns={3} gap={10}>
             <Select
               options={LANGUAGES}
-              placeholder={t('juniorForm.fields.language')}
+              placeholder={t('adultForm.fields.language')}
               name='language'
             />
             <Select
               options={ADULT_DESTINATIONS}
-              placeholder={t('juniorForm.fields.destination')}
+              placeholder={t('adultForm.fields.destination')}
               name='destination'
               isMulti
             />
             <Select
               options={ADULT_EXAMS}
-              placeholder={t('juniorForm.fields.exam')}
+              placeholder={t('adultForm.fields.exam')}
               name='exam'
             />
           </SimpleGrid>
         </VStack>
         <HStack w='full' justifyContent='center' mt={10}>
-          <Button type='submit'>{t('juniorForm.search')}</Button>
+          <Button type='submit'>{t('adultForm.search')}</Button>
         </HStack>
       </form>
     </FormProvider>
   )
 }
 
-export default JuniorForm
+export default AdultForm
