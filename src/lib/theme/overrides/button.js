@@ -14,7 +14,7 @@ export default {
       // styles for different sizes ("sm", "md", "lg")
       sizes: {
         md: {
-          fontSize: 'sm',
+          fontSize: 'xs',
         },
       },
       // styles for different visual variants ("outline", "solid")
