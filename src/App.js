@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 /**
  * The internal imports
  */
-import { JuniorForm, TripSelection } from './components'
+import { AdultForm, JuniorForm, TripSelection } from './components'
 
 const App = () => {
   const { t } = useTranslation()
@@ -22,6 +22,8 @@ const App = () => {
       return <TripSelection setStep={setStep} />
     } else if (step === 'juniorForm') {
       return <JuniorForm />
+    } else if (step === 'adultForm') {
+      return <AdultForm />
     }
   })
 

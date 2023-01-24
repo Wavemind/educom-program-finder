@@ -20,6 +20,16 @@ export default {
     },
     search: 'Lancer la recherche',
   },
+  adultForm: {
+    header: 'Critères de recherche',
+    subheader: 'Choisissez mainenant les critères des programmes désirés :',
+    fields: {
+      language: 'Langue',
+      destination: 'Destination',
+      exam: 'Examen',
+    },
+    search: 'Lancer la recherche',
+  },
   constants: {
     languages: {
       english: 'Anglais',
@@ -30,6 +40,7 @@ export default {
     destinations: {
       germany: 'Allemagne',
       england: 'Angleterre',
+      australia: 'Australie',
       austria: 'Autriche',
       belgium: 'Belgique',
       canada: 'Canada',
@@ -38,6 +49,7 @@ export default {
       ireland: 'Irlande',
       italy: 'Italie',
       malta: 'Malte',
+      newZealand: 'Nouvelle Zélande',
       switzerland: 'Suisse',
       usa: 'USA',
       other: 'Autre',
@@ -130,7 +142,9 @@ export default {
     exams: {
       cambridge: 'Cambridge',
       ielts: 'IELTS',
+      toefl: 'TOEFL',
       trinity: 'Trinity',
+      testDaf: 'TestDaf',
       dele: 'DELE',
       telc: 'TELC',
     },
