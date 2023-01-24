@@ -1,5 +1,11 @@
 export default {
-  form: {
+  tripSelection: {
+    header: 'Trip type',
+    subheader: 'Begin by selecting the trip type for your child :',
+    juniorCamp: 'Junior Summer Camp (6 - 18 years)',
+    adultTrip: 'Adult linguistic trip (16+ years)',
+  },
+  juniorForm: {
     header: 'Search criteria',
     subheader: 'Select the criteria for the desired program :',
     fields: {
