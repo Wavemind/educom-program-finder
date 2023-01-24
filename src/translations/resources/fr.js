@@ -30,6 +30,11 @@ export default {
     },
     search: 'Lancer la recherche',
   },
+  results: {
+    header: 'Les programmes que nous vous proposons',
+    noResults:
+      'Aucun critère choisi, sélectionnez vos critères ci-dessus et lancez une recherche',
+  },
   constants: {
     languages: {
       english: 'Anglais',

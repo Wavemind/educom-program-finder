@@ -30,6 +30,11 @@ export default {
     },
     search: 'Begin the search',
   },
+  results: {
+    header: 'The programs that we propose',
+    noResults:
+      'No criteria selected, please select criteria above and run a search',
+  },
   constants: {
     languages: {
       english: 'English',
