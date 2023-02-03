@@ -1,8 +1,8 @@
 /**
  * The external imports
  */
-import { useEffect } from 'react'
-import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
+import { useEffect, useMemo } from 'react'
+import { HStack, VStack, Button, SimpleGrid, Box, Text } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -18,31 +18,98 @@ import {
 import {
   AGES,
   LANGUAGES,
-  DESTINATIONS,
   TYPES,
-  ACTIVITIES,
   PERIODS,
   DURATIONS,
-  EXAMS,
 } from '../lib/config/constants'
 
 const JuniorForm = () => {
   const methods = useForm()
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
 
-  const [getActivities, getActivitiesResponse] = useLazyGetActivitiesQuery()
-  const [getCountries, getCountriesResponse] = useLazyGetCountriesQuery()
-  const [getExams, getExamsResponse] = useLazyGetExamsQuery()
+  const [
+    getActivities,
+    {
+      data: activities,
+      isSuccess: isGetActivitiesSuccess,
+      isError: isGetActivitiesError,
+      error: getActivitiesError,
+    },
+  ] = useLazyGetActivitiesQuery()
 
+  const [
+    getCountries,
+    {
+      data: countries,
+      isSuccess: isGetCountriesSuccess,
+      isError: isGetCountriesError,
+      error: getCountriesError,
+    },
+  ] = useLazyGetCountriesQuery()
+
+  const [
+    getExams,
+    {
+      data: exams,
+      isSuccess: isGetExamsSuccess,
+      isError: isGetExamsError,
+      error: getExamsError,
+    },
+  ] = useLazyGetExamsQuery()
+
+  /**
+   * Formats the activities obtained from the api
+   */
+  const formattedActivities = useMemo(() => {
+    if (isGetActivitiesSuccess) {
+      return Object.keys(activities).map(group => ({
+        label: t(`constants.activities.${group}`),
+        options: activities[group].map(activity => ({
+          value: activity.id,
+          label: activity.nameTranslations[language],
+        })),
+      }))
+    }
+    return []
+  }, [isGetActivitiesSuccess, language])
+
+  /**
+   * Formats the countries obtained from the api
+   */
+  const formattedCountries = useMemo(() => {
+    if (isGetCountriesSuccess) {
+      return countries.map(country => ({
+        value: country.id,
+        label: country.name,
+      }))
+    }
+    return []
+  }, [isGetCountriesSuccess])
+
+  /**
+   * Formats the exams obtained from the api
+   */
+  const formattedExams = useMemo(() => {
+    if (isGetExamsSuccess) {
+      return exams.map(exam => ({
+        value: exam.id,
+        label: exam.nameTranslations[language],
+      }))
+    }
+    return []
+  }, [isGetExamsSuccess, language])
+
+  /**
+   * Get the formData from the api
+   */
   useEffect(() => {
     getActivities()
     getCountries()
     getExams()
   }, [])
-
-  console.log(getActivitiesResponse)
-  console.log(getCountriesResponse)
-  console.log(getExamsResponse)
 
   const onSubmit = data => {
     // TODO : Figure out where to send the data
@@ -65,7 +132,7 @@ const JuniorForm = () => {
               name='language'
             />
             <Select
-              options={DESTINATIONS}
+              options={formattedCountries}
               placeholder={t('juniorForm.fields.destination')}
               name='destination'
               isMulti
@@ -76,7 +143,7 @@ const JuniorForm = () => {
               name='tripType'
             />
             <Select
-              options={ACTIVITIES}
+              options={formattedActivities}
               placeholder={t('juniorForm.fields.activities')}
               name='activities'
               isMulti
@@ -94,11 +161,38 @@ const JuniorForm = () => {
               name='duration'
             />
             <Select
-              options={EXAMS}
+              options={formattedExams}
               placeholder={t('juniorForm.fields.exam')}
               name='exam'
             />
           </SimpleGrid>
+          {isGetActivitiesError && (
+            <Box w='full'>
+              <Text fontSize='md' color='red'>
+                {typeof getActivitiesError.message === 'string'
+                  ? getActivitiesError.message.split(':')[0]
+                  : getActivitiesError.data.errors.join()}
+              </Text>
+            </Box>
+          )}
+          {isGetCountriesError && (
+            <Box w='full'>
+              <Text fontSize='md' color='red'>
+                {typeof getCountriesError.message === 'string'
+                  ? getCountriesError.message.split(':')[0]
+                  : getCountriesError.data.errors.join()}
+              </Text>
+            </Box>
+          )}
+          {isGetExamsError && (
+            <Box w='full'>
+              <Text fontSize='md' color='red'>
+                {typeof getExamsError.message === 'string'
+                  ? getExamsError.message.split(':')[0]
+                  : getExamsError.data.errors.join()}
+              </Text>
+            </Box>
+          )}
         </VStack>
         <HStack w='full' justifyContent='center' mt={10}>
           <Button type='submit'>{t('juniorForm.search')}</Button>

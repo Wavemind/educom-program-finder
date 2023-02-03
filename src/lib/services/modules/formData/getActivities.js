@@ -13,18 +13,21 @@ export default build =>
               id
               nameTranslations {
                 fr
+                en
               }
             }
             sports {
               id
               nameTranslations {
                 fr
+                en
               }
             }
             academics {
               id
               nameTranslations {
                 fr
+                en
               }
             }
           }
