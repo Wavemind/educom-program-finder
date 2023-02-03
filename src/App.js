@@ -64,7 +64,7 @@ const App = () => {
     } else if (isError) {
       return (
         <Box w='full'>
-          <Text fontSize='md' color='red'>
+          <Text fontSize='md' color='error'>
             {typeof error.message === 'string'
               ? error.message.split(':')[0]
               : error.data.errors.join()}
