@@ -44,6 +44,13 @@ const App = () => {
   })
 
   /**
+   * Callback to submit the details request form
+   */
+  const requestDetails = useCallback(data => {
+    console.log(data)
+  })
+
+  /**
    * Removes the loading state when response is received from the api
    */
   useEffect(() => {
@@ -63,7 +70,7 @@ const App = () => {
     } else if (step === 'adultForm') {
       return <AdultForm submitForm={submitForm} />
     } else if (step === 'detailsForm') {
-      return <DetailsForm />
+      return <DetailsForm submitForm={requestDetails} />
     }
   }, [step])
 

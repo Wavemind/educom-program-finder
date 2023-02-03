@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
  */
 import { Input } from './'
 
-const DetailsForm = () => {
+const DetailsForm = ({ submitForm }) => {
   const { t } = useTranslation()
 
   const methods = useForm({
@@ -25,18 +25,9 @@ const DetailsForm = () => {
     },
   })
 
-  /**
-   * Submits the form to the backend
-   * @param {*} data
-   */
-  const onSubmit = data => {
-    // TODO : Figure out where to send this
-    console.log(data)
-  }
-
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form onSubmit={methods.handleSubmit(submitForm)}>
         <Flex justify='center'>
           <VStack spacing={8} w='60%'>
             <VStack spacing={6} w='full'>
