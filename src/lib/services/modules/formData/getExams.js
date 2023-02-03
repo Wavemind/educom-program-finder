@@ -20,5 +20,5 @@ export default build =>
       variables: {},
     }),
     transformResponse: response => response.getExams,
-    providesTags: ['Countries'],
+    providesTags: ['Exams'],
   })

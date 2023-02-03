@@ -8,7 +8,7 @@ export const api = createApi({
   baseQuery: graphqlRequestBaseQuery({
     url: `${process.env.REACT_APP_PUBLIC_API_URL}/graphql`,
   }),
-  refetchOnMountOrArgChange: 10,
+  refetchOnMountOrArgChange: true,
   endpoints: () => ({}),
   tagTypes: [],
 })
