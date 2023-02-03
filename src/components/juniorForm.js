@@ -112,7 +112,7 @@ const JuniorForm = ({ submitForm }) => {
   }, [])
 
   const onSubmit = data => {
-    // TODO : Figure out where to send the data
+    // TODO : Include data in submitForm once the api is ready
     console.log(data)
     submitForm()
   }
@@ -169,7 +169,7 @@ const JuniorForm = ({ submitForm }) => {
           </SimpleGrid>
           {isGetActivitiesError && (
             <Box w='full'>
-              <Text fontSize='md' color='red'>
+              <Text fontSize='md' color='error'>
                 {typeof getActivitiesError.message === 'string'
                   ? getActivitiesError.message.split(':')[0]
                   : getActivitiesError.data.errors.join()}
@@ -178,7 +178,7 @@ const JuniorForm = ({ submitForm }) => {
           )}
           {isGetCountriesError && (
             <Box w='full'>
-              <Text fontSize='md' color='red'>
+              <Text fontSize='md' color='error'>
                 {typeof getCountriesError.message === 'string'
                   ? getCountriesError.message.split(':')[0]
                   : getCountriesError.data.errors.join()}
@@ -187,7 +187,7 @@ const JuniorForm = ({ submitForm }) => {
           )}
           {isGetExamsError && (
             <Box w='full'>
-              <Text fontSize='md' color='red'>
+              <Text fontSize='md' color='error'>
                 {typeof getExamsError.message === 'string'
                   ? getExamsError.message.split(':')[0]
                   : getExamsError.data.errors.join()}

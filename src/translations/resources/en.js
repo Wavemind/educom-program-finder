@@ -34,6 +34,9 @@ export default {
     header: 'The programs that we propose',
     noResults:
       'No criteria selected, please select criteria above and run a search',
+    requestDetails:
+      'If one or more of these programmes interest you, you can request further details :',
+    requestDetailsButton: 'Request program details',
   },
   constants: {
     languages: {

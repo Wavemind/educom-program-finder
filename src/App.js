@@ -8,6 +8,7 @@ import {
   Box,
   Text,
   SimpleGrid,
+  Button,
   CircularProgress,
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
@@ -75,12 +76,28 @@ const App = () => {
         </Box>
       )
     } else if (campuses.length > 0) {
+      /**
+       * Requests further details
+       */
+      const requestDetails = () => {
+        // TODO : Figure out where this goes
+        console.log('request details')
+      }
+
       return (
-        <SimpleGrid columns={3} spacing={14}>
-          {campuses.map((campus, index) => (
-            <Campus key={`campus_${index}`} campus={campus} />
-          ))}
-        </SimpleGrid>
+        <VStack spacing={8}>
+          <SimpleGrid columns={3} spacing={14}>
+            {campuses.map((campus, index) => (
+              <Campus key={`campus_${index}`} campus={campus} />
+            ))}
+          </SimpleGrid>
+          <Text color='white' fontSize='md'>
+            {t('results.requestDetails')}
+          </Text>
+          <Button onClick={requestDetails}>
+            {t('results.requestDetailsButton')}
+          </Button>
+        </VStack>
       )
     }
     return <Text color='white'>{t('results.noResults')}</Text>

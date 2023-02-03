@@ -34,6 +34,9 @@ export default {
     header: 'Les programmes que nous vous proposons',
     noResults:
       'Aucun critère choisi, sélectionnez vos critères ci-dessus et lancez une recherche',
+    requestDetails:
+      "Si l'un ou plusieurs de ces programmes vous intéresse, demandez-nous les détails :",
+    requestDetailsButton: 'Demander les détails des programmes',
   },
   constants: {
     languages: {
