@@ -1,6 +1,7 @@
 /**
  * The external imports
  */
+import { useEffect } from 'react'
 import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -9,6 +10,11 @@ import { useTranslation } from 'react-i18next'
  * The internal imports
  */
 import { Select } from './'
+import {
+  useLazyGetActivitiesQuery,
+  useLazyGetCountriesQuery,
+  useLazyGetExamsQuery,
+} from '../lib/services/modules/formData'
 import {
   AGES,
   LANGUAGES,
@@ -23,6 +29,20 @@ import {
 const JuniorForm = () => {
   const methods = useForm()
   const { t } = useTranslation()
+
+  const [getActivities, getActivitiesResponse] = useLazyGetActivitiesQuery()
+  const [getCountries, getCountriesResponse] = useLazyGetCountriesQuery()
+  const [getExams, getExamsResponse] = useLazyGetExamsQuery()
+
+  useEffect(() => {
+    getActivities()
+    getCountries()
+    getExams()
+  }, [])
+
+  console.log(getActivitiesResponse)
+  console.log(getCountriesResponse)
+  console.log(getExamsResponse)
 
   const onSubmit = data => {
     // TODO : Figure out where to send the data
