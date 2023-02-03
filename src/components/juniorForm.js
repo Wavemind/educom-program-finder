@@ -23,7 +23,7 @@ import {
   DURATIONS,
 } from '../lib/config/constants'
 
-const JuniorForm = () => {
+const JuniorForm = ({ submitForm }) => {
   const methods = useForm()
   const {
     t,
@@ -114,6 +114,7 @@ const JuniorForm = () => {
   const onSubmit = data => {
     // TODO : Figure out where to send the data
     console.log(data)
+    submitForm()
   }
 
   return (
