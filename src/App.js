@@ -28,6 +28,9 @@ const App = () => {
     { data: campuses = [], isSuccess, isError, error, status },
   ] = useLazyGetCampusesQuery()
 
+  /**
+   * Callback to submit the adult of junior forms
+   */
   const submitForm = useCallback(() => {
     setLoading(true)
     getCampuses()
