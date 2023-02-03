@@ -67,12 +67,12 @@ const DetailsForm = () => {
               <Input
                 name='childLastName'
                 isRequired
-                placeholder={t('detailsForm.firstName')}
+                placeholder={t('detailsForm.lastName')}
               />
               <Input
                 name='childFirstName'
                 isRequired
-                placeholder={t('detailsForm.lastName')}
+                placeholder={t('detailsForm.firstName')}
               />
               <Input
                 name='childBirthDate'
