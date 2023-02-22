@@ -16,12 +16,18 @@ import { useTranslation } from 'react-i18next'
 /**
  * The internal imports
  */
-import { AdultForm, JuniorForm, Campus, TripSelection } from './components'
+import {
+  AdultForm,
+  JuniorForm,
+  Campus,
+  TripSelection,
+  DetailsForm,
+} from './components'
 import { useLazyGetCampusesQuery } from './lib/services/modules/campus'
 
 const App = () => {
   const { t } = useTranslation()
-  const [step, setStep] = useState('tripSelection')
+  const [step, setStep] = useState('detailsForm')
   const [loading, setLoading] = useState(false)
 
   const [
@@ -35,6 +41,13 @@ const App = () => {
   const submitForm = useCallback(() => {
     setLoading(true)
     getCampuses()
+  })
+
+  /**
+   * Callback to submit the details request form
+   */
+  const requestDetails = useCallback(data => {
+    console.log(data)
   })
 
   /**
@@ -56,6 +69,8 @@ const App = () => {
       return <JuniorForm submitForm={submitForm} />
     } else if (step === 'adultForm') {
       return <AdultForm submitForm={submitForm} />
+    } else if (step === 'detailsForm') {
+      return <DetailsForm submitForm={requestDetails} />
     }
   }, [step])
 
@@ -76,14 +91,6 @@ const App = () => {
         </Box>
       )
     } else if (campuses.length > 0) {
-      /**
-       * Requests further details
-       */
-      const requestDetails = () => {
-        // TODO : Figure out where this goes
-        console.log('request details')
-      }
-
       return (
         <VStack spacing={8}>
           <SimpleGrid columns={3} spacing={14}>
@@ -94,7 +101,7 @@ const App = () => {
           <Text color='white' fontSize='md'>
             {t('results.requestDetails')}
           </Text>
-          <Button onClick={requestDetails}>
+          <Button onClick={() => setStep('detailsForm')}>
             {t('results.requestDetailsButton')}
           </Button>
         </VStack>
@@ -107,10 +114,12 @@ const App = () => {
     <Box w='full' bg='background' py={10} px={96}>
       <VStack spacing={8} w='full' mb={10}>
         <Heading variant='h1'>{t(`${step}.header`)}</Heading>
-        <Heading variant='h2'>{t(`${step}.subheader`)}</Heading>
+        <Heading variant='h2' w='50%' textAlign='center'>
+          {t(`${step}.subheader`)}
+        </Heading>
       </VStack>
       {render}
-      {step !== 'tripSelection' && (
+      {!['tripSelection', 'detailsForm'].includes(step) && (
         <VStack w='full' spacing={8} mt={10}>
           <Heading variant='h1'>{t('results.header')}</Heading>
           {renderResults}
