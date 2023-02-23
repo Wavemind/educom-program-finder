@@ -38,17 +38,10 @@ const App = () => {
   /**
    * Callback to submit the adult of junior forms
    */
-  const submitForm = useCallback(() => {
+  const submitProgramForm = useCallback(() => {
     setLoading(true)
     getCampuses()
-  })
-
-  /**
-   * Callback to submit the details request form
-   */
-  const requestDetails = useCallback(data => {
-    console.log(data)
-  })
+  }, [])
 
   /**
    * Removes the loading state when response is received from the api
@@ -66,11 +59,11 @@ const App = () => {
     if (step === 'tripSelection') {
       return <TripSelection setStep={setStep} />
     } else if (step === 'juniorForm') {
-      return <JuniorForm submitForm={submitForm} />
+      return <JuniorForm submitForm={submitProgramForm} />
     } else if (step === 'adultForm') {
-      return <AdultForm submitForm={submitForm} />
+      return <AdultForm submitForm={submitProgramForm} />
     } else if (step === 'detailsForm') {
-      return <DetailsForm submitForm={requestDetails} />
+      return <DetailsForm />
     }
   }, [step])
 

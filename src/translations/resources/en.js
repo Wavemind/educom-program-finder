@@ -50,6 +50,7 @@ export default {
     phone: 'Phone number (optional)',
     birthDate: 'Birth date',
     send: 'Send',
+    success: 'Details request sent',
   },
   constants: {
     languages: {
