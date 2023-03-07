@@ -11,5 +11,6 @@ import colors from './foundations/colors'
 import fontSizes from './foundations/fontSizes'
 import heading from './overrides/heading'
 import button from './overrides/button'
+import input from './overrides/input'
 
-export default extendTheme(config, colors, fontSizes, heading, button)
+export default extendTheme(config, colors, fontSizes, heading, button, input)

@@ -15,13 +15,12 @@ import {
   ADULT_EXAMS,
 } from '../lib/config/constants'
 
-const AdultForm = () => {
+const AdultForm = ({ submitForm }) => {
   const methods = useForm()
   const { t } = useTranslation()
 
   const onSubmit = data => {
-    // TODO : Figure out where to send the data
-    console.log(data)
+    submitForm(data)
   }
 
   return (

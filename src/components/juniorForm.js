@@ -1,6 +1,7 @@
 /**
  * The external imports
  */
+import { useMemo } from 'react'
 import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -8,25 +9,93 @@ import { useTranslation } from 'react-i18next'
 /**
  * The internal imports
  */
-import { Select } from './'
+import { Select, FormError } from './'
+import transformFormData from '../lib/utils/transformFormData'
+import {
+  useGetActivitiesQuery,
+  useGetCountriesQuery,
+  useGetExamsQuery,
+} from '../lib/services/modules/formData'
 import {
   AGES,
   LANGUAGES,
-  DESTINATIONS,
   TYPES,
-  ACTIVITIES,
   PERIODS,
   DURATIONS,
-  EXAMS,
 } from '../lib/config/constants'
 
-const JuniorForm = () => {
+const JuniorForm = ({ submitForm }) => {
   const methods = useForm()
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
+
+  const {
+    data: activities,
+    isSuccess: isGetActivitiesSuccess,
+    isError: isGetActivitiesError,
+    error: getActivitiesError,
+  } = useGetActivitiesQuery()
+
+  const {
+    data: countries,
+    isSuccess: isGetCountriesSuccess,
+    isError: isGetCountriesError,
+    error: getCountriesError,
+  } = useGetCountriesQuery()
+
+  const {
+    data: exams,
+    isSuccess: isGetExamsSuccess,
+    isError: isGetExamsError,
+    error: getExamsError,
+  } = useGetExamsQuery()
+
+  /**
+   * Formats the activities obtained from the api
+   */
+  const formattedActivities = useMemo(() => {
+    if (isGetActivitiesSuccess) {
+      return Object.keys(activities).map(group => ({
+        label: t(`constants.activities.${group}`),
+        options: activities[group].map(activity => ({
+          value: activity.id,
+          label: activity.nameTranslations[language],
+        })),
+      }))
+    }
+    return []
+  }, [isGetActivitiesSuccess, language])
+
+  /**
+   * Formats the countries obtained from the api
+   */
+  const formattedCountries = useMemo(() => {
+    if (isGetCountriesSuccess) {
+      return countries.map(country => ({
+        value: country.id,
+        label: country.name,
+      }))
+    }
+    return []
+  }, [isGetCountriesSuccess])
+
+  /**
+   * Formats the exams obtained from the api
+   */
+  const formattedExams = useMemo(() => {
+    if (isGetExamsSuccess) {
+      return exams.map(exam => ({
+        value: exam.id,
+        label: exam.nameTranslations[language],
+      }))
+    }
+    return []
+  }, [isGetExamsSuccess, language])
 
   const onSubmit = data => {
-    // TODO : Figure out where to send the data
-    console.log(data)
+    submitForm(transformFormData(data))
   }
 
   return (
@@ -45,7 +114,7 @@ const JuniorForm = () => {
               name='language'
             />
             <Select
-              options={DESTINATIONS}
+              options={formattedCountries}
               placeholder={t('juniorForm.fields.destination')}
               name='destination'
               isMulti
@@ -56,7 +125,7 @@ const JuniorForm = () => {
               name='tripType'
             />
             <Select
-              options={ACTIVITIES}
+              options={formattedActivities}
               placeholder={t('juniorForm.fields.activities')}
               name='activities'
               isMulti
@@ -74,11 +143,14 @@ const JuniorForm = () => {
               name='duration'
             />
             <Select
-              options={EXAMS}
+              options={formattedExams}
               placeholder={t('juniorForm.fields.exam')}
               name='exam'
             />
           </SimpleGrid>
+          {isGetActivitiesError && <FormError error={getActivitiesError} />}
+          {isGetCountriesError && <FormError error={getCountriesError} />}
+          {isGetExamsError && <FormError error={getExamsError} />}
         </VStack>
         <HStack w='full' justifyContent='center' mt={10}>
           <Button type='submit'>{t('juniorForm.search')}</Button>
