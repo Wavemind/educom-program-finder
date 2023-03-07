@@ -20,9 +20,7 @@ const AdultForm = ({ submitForm }) => {
   const { t } = useTranslation()
 
   const onSubmit = data => {
-    // TODO : Include data in submitForm once the api is ready
-    console.log(data)
-    submitForm()
+    submitForm(data)
   }
 
   return (

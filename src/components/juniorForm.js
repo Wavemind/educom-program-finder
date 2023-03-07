@@ -95,7 +95,6 @@ const JuniorForm = ({ submitForm }) => {
   }, [isGetExamsSuccess, language])
 
   const onSubmit = data => {
-    // TODO : Include data in submitForm once the api is ready
     submitForm(transformFormData(data))
   }
 
