@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'
  * The internal imports
  */
 import { Select } from './'
+import transformFormData from '../lib/utils/transformFormData'
 import {
   useLazyGetActivitiesQuery,
   useLazyGetCountriesQuery,
@@ -113,8 +114,7 @@ const JuniorForm = ({ submitForm }) => {
 
   const onSubmit = data => {
     // TODO : Include data in submitForm once the api is ready
-    console.log(data)
-    submitForm()
+    submitForm(transformFormData(data))
   }
 
   return (

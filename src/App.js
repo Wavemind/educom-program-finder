@@ -27,7 +27,7 @@ import { useLazyGetCampusesQuery } from './lib/services/modules/campus'
 
 const App = () => {
   const { t } = useTranslation()
-  const [step, setStep] = useState('detailsForm')
+  const [step, setStep] = useState('tripSelection')
   const [loading, setLoading] = useState(false)
 
   const [
@@ -38,9 +38,9 @@ const App = () => {
   /**
    * Callback to submit the adult of junior forms
    */
-  const submitForm = useCallback(() => {
+  const submitForm = useCallback(data => {
     setLoading(true)
-    getCampuses()
+    getCampuses(data)
   })
 
   /**

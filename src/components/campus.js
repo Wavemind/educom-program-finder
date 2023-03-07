@@ -3,6 +3,11 @@
  */
 import { VStack, Box, Text, Image } from '@chakra-ui/react'
 
+/**
+ * The internal imports
+ */
+import formatDate from '../lib/utils/formatDate'
+
 const Campus = ({ campus }) => (
   <Box w='340px' display='flex' flexDirection='column'>
     <Box h={220}>
@@ -22,19 +27,29 @@ const Campus = ({ campus }) => (
     >
       <Box>
         <Text fontSize='sm' fontWeight='bold'>
-          {campus.name}
+          {campus.program.subtypeName} | ({campus.ageBegin} - {campus.ageEnd})
         </Text>
         <Text fontSize='md' color='primary'>
-          {campus.destination || 'Ludlow, Angleterre'}
+          {campus.country.name}
         </Text>
         <Text fontSize='sm' color='primary'>
-          {campus.duration || '9 juillet - 6 août 2022'}
+          {/* TO DO set locale */}
+          {campus.firstDate && campus.lastDate
+            ? `${formatDate(campus.firstDate, 'fr')} - 
+            ${formatDate(campus.lastDate, 'fr')}`
+            : 'Aucune date prévues'}
         </Text>
       </Box>
-      <Text fontSize='sm'>
-        {campus.description ||
-          'More Than English se trouve dans un vieux collège de 300 ans. Très beau, très britannique. Le camps se trouve dans la ville médiévale de Ludlow, charmante ville au centre de l’Angleterre. 3 heures de cours d’anglais le matin.'}
-      </Text>
+      <Text
+        fontSize='sm'
+        sx={{
+          ul: {
+            marginX: 3,
+            marginY: 1,
+          },
+        }}
+        dangerouslySetInnerHTML={{ __html: campus.publicDescriptionFr }}
+      ></Text>
       <Text fontSize='sm'>{campus.price}</Text>
     </VStack>
   </Box>
