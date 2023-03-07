@@ -1,7 +1,8 @@
 /**
  * The external imports
  */
-import { VStack, Text, Button, Flex } from '@chakra-ui/react'
+import { useEffect } from 'react'
+import { VStack, Text, Button, Flex, useToast } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -9,9 +10,14 @@ import { useTranslation } from 'react-i18next'
  * The internal imports
  */
 import { Input } from './'
+import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
-const DetailsForm = ({ submitForm }) => {
+const DetailsForm = () => {
   const { t } = useTranslation()
+
+  const toast = useToast()
+
+  const [requestDetails, { isSuccess }] = useLazyRequestDetailsQuery()
 
   const methods = useForm({
     defaultValues: {
@@ -25,9 +31,21 @@ const DetailsForm = ({ submitForm }) => {
     },
   })
 
+  useEffect(() => {
+    if (isSuccess) {
+      toast({
+        title: t('detailsForm.success'),
+        status: 'success',
+        position: 'bottom-right',
+        duration: 5000,
+      })
+      methods.reset()
+    }
+  }, [isSuccess])
+
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(submitForm)}>
+      <form onSubmit={methods.handleSubmit(requestDetails)}>
         <Flex justify='center'>
           <VStack spacing={8} w='60%'>
             <VStack spacing={6} w='full'>

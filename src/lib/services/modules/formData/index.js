@@ -16,8 +16,5 @@ export const formDataApi = api.injectEndpoints({
 })
 
 // Export hooks for usage in functional components
-export const {
-  useLazyGetActivitiesQuery,
-  useLazyGetCountriesQuery,
-  useLazyGetExamsQuery,
-} = formDataApi
+export const { useGetActivitiesQuery, useGetCountriesQuery, useGetExamsQuery } =
+  formDataApi

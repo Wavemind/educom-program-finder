@@ -50,6 +50,7 @@ const Campus = ({ campus }) => (
         }}
         dangerouslySetInnerHTML={{ __html: campus.publicDescriptionFr }}
       ></Text>
+
       <Text fontSize='sm'>{campus.price}</Text>
     </VStack>
   </Box>

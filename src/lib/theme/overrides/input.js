@@ -17,11 +17,9 @@ export default {
             fontSize: 'md',
             height: '70px',
             _hover: {
-              // TODO : Check if there is a hover
               bg: 'secondary',
             },
             _focus: {
-              // TODO : Check if there is a focus
               bg: 'secondary',
             },
             _placeholder: {

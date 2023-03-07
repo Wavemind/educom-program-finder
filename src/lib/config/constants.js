@@ -70,3 +70,10 @@ export const ADULT_EXAMS = [
   { label: i18n.t('constants.exams.testDaf'), value: 'testDaf' },
   { label: i18n.t('constants.exams.dele'), value: 'dele' },
 ]
+
+export const STEPS = {
+  tripSelection: 'tripSelection',
+  juniorForm: 'juniorForm',
+  adultForm: 'adultForm',
+  detailsForm: 'detailsForm',
+}
