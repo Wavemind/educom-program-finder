@@ -24,15 +24,16 @@ import {
   DetailsForm,
 } from './components'
 import { useLazyGetCampusesQuery } from './lib/services/modules/campus'
+import { STEPS } from './lib/config/constants'
 
 const App = () => {
   const { t } = useTranslation()
-  const [step, setStep] = useState('detailsForm')
+  const [step, setStep] = useState(STEPS.tripSelection)
   const [loading, setLoading] = useState(false)
 
   const [
     getCampuses,
-    { data: campuses = [], isSuccess, isError, error, status },
+    { data: campuses = [], isSuccess, isError, error, isFetching },
   ] = useLazyGetCampusesQuery()
 
   /**
@@ -47,22 +48,22 @@ const App = () => {
    * Removes the loading state when response is received from the api
    */
   useEffect(() => {
-    if ((isSuccess && status === 'fulfilled') || isError) {
+    if ((isSuccess && !isFetching) || isError) {
       setLoading(false)
     }
-  }, [isSuccess, status, isError])
+  }, [isSuccess, isFetching, isError])
 
   /**
    * Renders component based on selected step
    */
   const render = useMemo(() => {
-    if (step === 'tripSelection') {
+    if (step === STEPS.tripSelection) {
       return <TripSelection setStep={setStep} />
-    } else if (step === 'juniorForm') {
+    } else if (step === STEPS.juniorForm) {
       return <JuniorForm submitForm={submitProgramForm} />
-    } else if (step === 'adultForm') {
+    } else if (step === STEPS.adultForm) {
       return <AdultForm submitForm={submitProgramForm} />
-    } else if (step === 'detailsForm') {
+    } else if (step === STEPS.detailsForm) {
       return <DetailsForm />
     }
   }, [step])
@@ -112,7 +113,7 @@ const App = () => {
         </Heading>
       </VStack>
       {render}
-      {!['tripSelection', 'detailsForm'].includes(step) && (
+      {![STEPS.tripSelection, STEPS.detailsForm].includes(step) && (
         <VStack w='full' spacing={8} mt={10}>
           <Heading variant='h1'>{t('results.header')}</Heading>
           {renderResults}

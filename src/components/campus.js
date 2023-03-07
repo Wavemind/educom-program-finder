@@ -25,16 +25,13 @@ const Campus = ({ campus }) => (
           {campus.name}
         </Text>
         <Text fontSize='md' color='primary'>
-          {campus.destination || 'Ludlow, Angleterre'}
+          {campus.destination}
         </Text>
         <Text fontSize='sm' color='primary'>
-          {campus.duration || '9 juillet - 6 août 2022'}
+          {campus.duration}
         </Text>
       </Box>
-      <Text fontSize='sm'>
-        {campus.description ||
-          'More Than English se trouve dans un vieux collège de 300 ans. Très beau, très britannique. Le camps se trouve dans la ville médiévale de Ludlow, charmante ville au centre de l’Angleterre. 3 heures de cours d’anglais le matin.'}
-      </Text>
+      <Text fontSize='sm'>{campus.description}</Text>
       <Text fontSize='sm'>{campus.price}</Text>
     </VStack>
   </Box>

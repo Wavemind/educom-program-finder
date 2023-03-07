@@ -1,19 +1,19 @@
 /**
  * The external imports
  */
-import { useEffect, useMemo } from 'react'
-import { HStack, VStack, Button, SimpleGrid, Box, Text } from '@chakra-ui/react'
+import { useMemo } from 'react'
+import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
 /**
  * The internal imports
  */
-import { Select } from './'
+import { FormError, Select } from './'
 import {
-  useLazyGetActivitiesQuery,
-  useLazyGetCountriesQuery,
-  useLazyGetExamsQuery,
+  useGetActivitiesQuery,
+  useGetCountriesQuery,
+  useGetExamsQuery,
 } from '../lib/services/modules/formData'
 import {
   AGES,
@@ -30,35 +30,26 @@ const JuniorForm = ({ submitForm }) => {
     i18n: { language },
   } = useTranslation()
 
-  const [
-    getActivities,
-    {
-      data: activities,
-      isSuccess: isGetActivitiesSuccess,
-      isError: isGetActivitiesError,
-      error: getActivitiesError,
-    },
-  ] = useLazyGetActivitiesQuery()
+  const {
+    data: activities,
+    isSuccess: isGetActivitiesSuccess,
+    isError: isGetActivitiesError,
+    error: getActivitiesError,
+  } = useGetActivitiesQuery()
 
-  const [
-    getCountries,
-    {
-      data: countries,
-      isSuccess: isGetCountriesSuccess,
-      isError: isGetCountriesError,
-      error: getCountriesError,
-    },
-  ] = useLazyGetCountriesQuery()
+  const {
+    data: countries,
+    isSuccess: isGetCountriesSuccess,
+    isError: isGetCountriesError,
+    error: getCountriesError,
+  } = useGetCountriesQuery()
 
-  const [
-    getExams,
-    {
-      data: exams,
-      isSuccess: isGetExamsSuccess,
-      isError: isGetExamsError,
-      error: getExamsError,
-    },
-  ] = useLazyGetExamsQuery()
+  const {
+    data: exams,
+    isSuccess: isGetExamsSuccess,
+    isError: isGetExamsError,
+    error: getExamsError,
+  } = useGetExamsQuery()
 
   /**
    * Formats the activities obtained from the api
@@ -101,15 +92,6 @@ const JuniorForm = ({ submitForm }) => {
     }
     return []
   }, [isGetExamsSuccess, language])
-
-  /**
-   * Get the formData from the api
-   */
-  useEffect(() => {
-    getActivities()
-    getCountries()
-    getExams()
-  }, [])
 
   const onSubmit = data => {
     // TODO : Include data in submitForm once the api is ready
@@ -167,33 +149,9 @@ const JuniorForm = ({ submitForm }) => {
               name='exam'
             />
           </SimpleGrid>
-          {isGetActivitiesError && (
-            <Box w='full'>
-              <Text fontSize='md' color='error'>
-                {typeof getActivitiesError.message === 'string'
-                  ? getActivitiesError.message.split(':')[0]
-                  : getActivitiesError.data.errors.join()}
-              </Text>
-            </Box>
-          )}
-          {isGetCountriesError && (
-            <Box w='full'>
-              <Text fontSize='md' color='error'>
-                {typeof getCountriesError.message === 'string'
-                  ? getCountriesError.message.split(':')[0]
-                  : getCountriesError.data.errors.join()}
-              </Text>
-            </Box>
-          )}
-          {isGetExamsError && (
-            <Box w='full'>
-              <Text fontSize='md' color='error'>
-                {typeof getExamsError.message === 'string'
-                  ? getExamsError.message.split(':')[0]
-                  : getExamsError.data.errors.join()}
-              </Text>
-            </Box>
-          )}
+          {isGetActivitiesError && <FormError error={getActivitiesError} />}
+          {isGetCountriesError && <FormError error={getCountriesError} />}
+          {isGetExamsError && <FormError error={getExamsError} />}
         </VStack>
         <HStack w='full' justifyContent='center' mt={10}>
           <Button type='submit'>{t('juniorForm.search')}</Button>
