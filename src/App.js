@@ -60,9 +60,9 @@ const App = () => {
     if (step === STEPS.tripSelection) {
       return <TripSelection setStep={setStep} />
     } else if (step === STEPS.juniorForm) {
-      return <JuniorForm submitForm={submitProgramForm} />
+      return <JuniorForm submitForm={submitForm} />
     } else if (step === STEPS.adultForm) {
-      return <AdultForm submitForm={submitProgramForm} />
+      return <AdultForm submitForm={submitForm} />
     } else if (step === STEPS.detailsForm) {
       return <DetailsForm />
     }
