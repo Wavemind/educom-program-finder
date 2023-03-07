@@ -7,5 +7,5 @@
   "jsxSingleQuote": true,
   "semi": false,
   "arrowParens": "avoid",
-  "limit": 10
+  "limit": 100
 }
