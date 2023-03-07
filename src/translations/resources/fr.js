@@ -44,6 +44,7 @@ export default {
       'Pour recevoir les détails de nos programmes veuillez svp remplir le formulaire de recherche ci-dessous, vous recevrez une fichier PDF avec toutes les informations nécessaire qui vous permettront de prendre une décision sur celui qui convient le mieux aux besoins de votre enfant.',
     parentInformation: 'Informations du parent',
     childInformation: "Informations de l'enfant",
+    no_date: 'Information indisponible',
     lastName: 'Nom',
     firstName: 'Prénom',
     email: 'Adresse e-mail',

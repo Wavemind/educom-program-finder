@@ -2,6 +2,7 @@
  * The external imports
  */
 import { VStack, Box, Text, Image } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 
 /**
  * The internal imports
@@ -39,7 +40,7 @@ const Campus = ({ campus }) => {
             {campus.firstDate && campus.lastDate
               ? `${formatDate(campus.firstDate, 'fr')} - 
             ${formatDate(campus.lastDate, 'fr')}`
-              : t('')}
+              : t('detailsForm.no_date')}
           </Text>
         </Box>
         <Text

@@ -44,6 +44,7 @@ export default {
       "To receive details for the selected programs, please fill out the form below. You will then receive a PDF with the information necessary to make an informed decision on which program fits your child's needs the best",
     parentInformation: 'Parent Information',
     childInformation: 'Child Information',
+    no_date: 'Information unavailable',
     lastName: 'Last name',
     firstName: 'First name',
     email: 'Email address',
