@@ -10,14 +10,12 @@ import { useTranslation } from 'react-i18next'
  * The internal imports
  */
 import { Select, FormError } from './'
-import { LANGUAGES } from '../lib/config/constants'
+import { LANGUAGES, STEPS } from '../lib/config/constants'
 import transformFormData from '../lib/utils/transformFormData'
 import {
   useGetCountriesQuery,
   useGetExamsQuery,
 } from '../lib/services/modules/formData'
-
-import { LANGUAGES, STEPS } from '../lib/config/constants'
 
 const AdultForm = ({ submitForm, setStep }) => {
   const methods = useForm()
