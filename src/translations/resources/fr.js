@@ -1,4 +1,7 @@
 export default {
+  common: {
+    back: 'Retour',
+  },
   tripSelection: {
     header: 'Type de séjour',
     subheader: 'Commencez par choisir le type de déjour pour votre enfant :',
