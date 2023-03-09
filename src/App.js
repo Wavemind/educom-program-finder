@@ -29,6 +29,7 @@ import { STEPS } from './lib/config/constants'
 const App = () => {
   const { t } = useTranslation()
   const [step, setStep] = useState(STEPS.tripSelection)
+  const [selectedForm, setSelectedForm] = useState(STEPS.juniorForm)
   const [loading, setLoading] = useState(false)
 
   const [
@@ -58,13 +59,15 @@ const App = () => {
    */
   const render = useMemo(() => {
     if (step === STEPS.tripSelection) {
-      return <TripSelection setStep={setStep} />
+      return (
+        <TripSelection setStep={setStep} setSelectedForm={setSelectedForm} />
+      )
     } else if (step === STEPS.juniorForm) {
-      return <JuniorForm submitForm={submitForm} />
+      return <JuniorForm submitForm={submitForm} setStep={setStep} />
     } else if (step === STEPS.adultForm) {
-      return <AdultForm submitForm={submitForm} />
+      return <AdultForm submitForm={submitForm} setStep={setStep} />
     } else if (step === STEPS.detailsForm) {
-      return <DetailsForm />
+      return <DetailsForm setStep={setStep} selectedForm={selectedForm} />
     }
   }, [step])
 

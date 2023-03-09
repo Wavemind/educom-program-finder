@@ -1,4 +1,7 @@
 export default {
+  common: {
+    back: 'Back',
+  },
   tripSelection: {
     header: 'Trip type',
     subheader: 'Begin by selecting the trip type for your child :',
