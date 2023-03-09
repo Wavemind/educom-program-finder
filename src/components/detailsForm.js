@@ -2,7 +2,15 @@
  * The external imports
  */
 import { useEffect } from 'react'
-import { VStack, Text, Button, Flex, useToast } from '@chakra-ui/react'
+import {
+  SimpleGrid,
+  VStack,
+  HStack,
+  Text,
+  Button,
+  Flex,
+  useToast,
+} from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -12,7 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { Input } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
-const DetailsForm = () => {
+const DetailsForm = ({ setStep, selectedForm }) => {
   const { t } = useTranslation()
 
   const toast = useToast()
@@ -42,6 +50,13 @@ const DetailsForm = () => {
       methods.reset()
     }
   }, [isSuccess])
+
+  /**
+   * Handles the back action and shows the correct form component
+   */
+  const goBack = () => {
+    setStep(selectedForm)
+  }
 
   return (
     <FormProvider {...methods}>
@@ -89,9 +104,14 @@ const DetailsForm = () => {
                 placeholder={t('detailsForm.birthDate')}
               />
             </VStack>
-            <Button w='full' type='submit'>
-              {t('detailsForm.send')}
-            </Button>
+            <SimpleGrid columns={3} w='full'>
+              <HStack>
+                <Button onClick={goBack}>{t('common.back')}</Button>
+              </HStack>
+              <HStack w='full' justifyContent='center'>
+                <Button type='submit'>{t('detailsForm.send')}</Button>
+              </HStack>
+            </SimpleGrid>
           </VStack>
         </Flex>
       </form>

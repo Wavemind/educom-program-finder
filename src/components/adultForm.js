@@ -17,7 +17,9 @@ import {
   useGetExamsQuery,
 } from '../lib/services/modules/formData'
 
-const AdultForm = ({ submitForm }) => {
+import { LANGUAGES, STEPS } from '../lib/config/constants'
+
+const AdultForm = ({ submitForm, setStep }) => {
   const methods = useForm()
   const {
     t,
@@ -64,6 +66,16 @@ const AdultForm = ({ submitForm }) => {
     return []
   }, [isGetExamsSuccess, language])
 
+  /**
+   * Handles the back action and shows the trip selection component
+   */
+  const goBack = () => {
+    setStep(STEPS.tripSelection)
+  }
+
+  /**
+   * Submits the form with the transformed from data
+   */
   const onSubmit = data => {
     submitForm(transformFormData(data))
   }
@@ -93,9 +105,14 @@ const AdultForm = ({ submitForm }) => {
           {isGetCountriesError && <FormError error={getCountriesError} />}
           {isGetExamsError && <FormError error={getExamsError} />}
         </VStack>
-        <HStack w='full' justifyContent='center' mt={10}>
-          <Button type='submit'>{t('adultForm.search')}</Button>
-        </HStack>
+        <SimpleGrid columns={3} mt={10}>
+          <HStack>
+            <Button onClick={goBack}>{t('common.back')}</Button>
+          </HStack>
+          <HStack w='full' justifyContent='center'>
+            <Button type='submit'>{t('adultForm.search')}</Button>
+          </HStack>
+        </SimpleGrid>
       </form>
     </FormProvider>
   )
