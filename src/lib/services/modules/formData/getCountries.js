@@ -5,16 +5,16 @@ import { gql } from 'graphql-request'
 
 export default build =>
   build.query({
-    query: () => ({
+    query: target => ({
       document: gql`
-        query {
-          getCountries {
+        query ($target: String!) {
+          getCountries(target: $target) {
             id
             name
           }
         }
       `,
-      variables: {},
+      variables: { target },
     }),
     transformResponse: response => response.getCountries,
     providesTags: ['Countries'],

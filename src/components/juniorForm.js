@@ -44,14 +44,14 @@ const JuniorForm = ({ submitForm, setStep }) => {
     isSuccess: isGetCountriesSuccess,
     isError: isGetCountriesError,
     error: getCountriesError,
-  } = useGetCountriesQuery()
+  } = useGetCountriesQuery('junior')
 
   const {
     data: exams,
     isSuccess: isGetExamsSuccess,
     isError: isGetExamsError,
     error: getExamsError,
-  } = useGetExamsQuery()
+  } = useGetExamsQuery('junior')
 
   /**
    * Formats the activities obtained from the api

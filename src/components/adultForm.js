@@ -29,14 +29,14 @@ const AdultForm = ({ submitForm, setStep }) => {
     isSuccess: isGetCountriesSuccess,
     isError: isGetCountriesError,
     error: getCountriesError,
-  } = useGetCountriesQuery()
+  } = useGetCountriesQuery('adult')
 
   const {
     data: exams,
     isSuccess: isGetExamsSuccess,
     isError: isGetExamsError,
     error: getExamsError,
-  } = useGetExamsQuery()
+  } = useGetExamsQuery('adult')
 
   /**
    * Formats the countries obtained from the api
