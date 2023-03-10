@@ -5,10 +5,10 @@ import { gql } from 'graphql-request'
 
 export default build =>
   build.query({
-    query: () => ({
+    query: target => ({
       document: gql`
-        query {
-          getExams {
+        query ($target: String!) {
+          getExams(target: $target) {
             id
             nameTranslations {
               fr
@@ -17,7 +17,7 @@ export default build =>
           }
         }
       `,
-      variables: {},
+      variables: { target },
     }),
     transformResponse: response => response.getExams,
     providesTags: ['Exams'],

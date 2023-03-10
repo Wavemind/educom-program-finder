@@ -1,6 +1,7 @@
 /**
  * The external imports
  */
+import { useMemo } from 'react'
 import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -8,17 +9,60 @@ import { useTranslation } from 'react-i18next'
 /**
  * The internal imports
  */
-import { Select } from '.'
+import { Select, FormError } from './'
+import { LANGUAGES, STEPS } from '../lib/config/constants'
+import transformFormData from '../lib/utils/transformFormData'
 import {
-  LANGUAGES,
-  ADULT_DESTINATIONS,
-  ADULT_EXAMS,
-  STEPS,
-} from '../lib/config/constants'
+  useGetCountriesQuery,
+  useGetExamsQuery,
+} from '../lib/services/modules/formData'
 
 const AdultForm = ({ submitForm, setStep }) => {
   const methods = useForm()
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
+
+  const {
+    data: countries,
+    isSuccess: isGetCountriesSuccess,
+    isError: isGetCountriesError,
+    error: getCountriesError,
+  } = useGetCountriesQuery('adult')
+
+  const {
+    data: exams,
+    isSuccess: isGetExamsSuccess,
+    isError: isGetExamsError,
+    error: getExamsError,
+  } = useGetExamsQuery('adult')
+
+  /**
+   * Formats the countries obtained from the api
+   */
+  const formattedCountries = useMemo(() => {
+    if (isGetCountriesSuccess) {
+      return countries.map(country => ({
+        value: country.id,
+        label: country.name,
+      }))
+    }
+    return []
+  }, [isGetCountriesSuccess])
+
+  /**
+   * Formats the exams obtained from the api
+   */
+  const formattedExams = useMemo(() => {
+    if (isGetExamsSuccess) {
+      return exams.map(exam => ({
+        value: exam.id,
+        label: exam.nameTranslations[language],
+      }))
+    }
+    return []
+  }, [isGetExamsSuccess, language])
 
   /**
    * Handles the back action and shows the trip selection component
@@ -31,7 +75,7 @@ const AdultForm = ({ submitForm, setStep }) => {
    * Submits the form with the transformed from data
    */
   const onSubmit = data => {
-    submitForm(data)
+    submitForm(transformFormData(data))
   }
 
   return (
@@ -45,17 +89,19 @@ const AdultForm = ({ submitForm, setStep }) => {
               name='language'
             />
             <Select
-              options={ADULT_DESTINATIONS}
+              options={formattedCountries}
               placeholder={t('adultForm.fields.destination')}
               name='destination'
               isMulti
             />
             <Select
-              options={ADULT_EXAMS}
+              options={formattedExams}
               placeholder={t('adultForm.fields.exam')}
               name='exam'
             />
           </SimpleGrid>
+          {isGetCountriesError && <FormError error={getCountriesError} />}
+          {isGetExamsError && <FormError error={getExamsError} />}
         </VStack>
         <SimpleGrid columns={3} mt={10}>
           <HStack>
