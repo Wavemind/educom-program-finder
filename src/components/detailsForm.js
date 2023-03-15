@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next'
 /**
  * The internal imports
  */
-import { Input } from './'
+import { Input, DatePicker } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
 const DetailsForm = ({ setStep, selectedForm }) => {
@@ -98,7 +98,7 @@ const DetailsForm = ({ setStep, selectedForm }) => {
                 isRequired
                 placeholder={t('detailsForm.firstName')}
               />
-              <Input
+              <DatePicker
                 name='childBirthDate'
                 isRequired
                 placeholder={t('detailsForm.birthDate')}

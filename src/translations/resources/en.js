@@ -52,7 +52,7 @@ export default {
     firstName: 'First name',
     email: 'Email address',
     phone: 'Phone number (optional)',
-    birthDate: 'Birth date',
+    birthDate: 'Birth date (DD.MM.YYYY)',
     send: 'Send',
     success: 'Details request sent',
   },

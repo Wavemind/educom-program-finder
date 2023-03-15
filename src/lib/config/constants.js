@@ -3,6 +3,21 @@
  */
 import i18n from '../../translations'
 
+export const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
+
 export const AGES = Array.from({ length: 13 }, (_, i) => i + 6).map(age => ({
   label: age,
   value: age,
