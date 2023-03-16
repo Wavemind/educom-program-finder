@@ -15,6 +15,7 @@ export default build =>
           $childLastName: String
           $childFirstName: String
           $childBirthDate: String
+          $campus_ids: [ID]
         ) {
           requestDetails(
             parentLastName: $parentLastName
@@ -24,6 +25,7 @@ export default build =>
             childLastName: $childLastName
             childFirstName: $childFirstName
             childBirthDate: $childBirthDate
+            campus_ids: $campus_ids
           )
         }
       `,
