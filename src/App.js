@@ -28,7 +28,7 @@ import { STEPS } from './lib/config/constants'
 
 const App = () => {
   const { t } = useTranslation()
-  const [step, setStep] = useState(STEPS.detailsForm)
+  const [step, setStep] = useState(STEPS.tripSelection)
   const [selectedForm, setSelectedForm] = useState(STEPS.juniorForm)
   const [loading, setLoading] = useState(false)
 
