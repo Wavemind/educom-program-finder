@@ -33,14 +33,12 @@ const DatePicker = ({ name, isRequired = false, placeholder }) => {
   } = useFormContext()
 
   const years = useConst(() => {
-    const yearsArray = []
     const currentYear = new Date().getFullYear()
-
-    for (let i = 0; i <= 18; i++) {
-      yearsArray.push(currentYear - i)
-    }
-
-    return yearsArray
+    return Array(45)
+      .fill()
+      .map((_, i) => {
+        return currentYear - i
+      })
   })
 
   // TODO : Link this to website locale, like we will do with the language
