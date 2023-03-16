@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { Input, DatePicker } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
-const DetailsForm = ({ setStep, selectedForm }) => {
+const DetailsForm = ({ setStep, selectedForm, campuses }) => {
   const { t } = useTranslation()
 
   const toast = useToast()
@@ -58,9 +58,20 @@ const DetailsForm = ({ setStep, selectedForm }) => {
     setStep(selectedForm)
   }
 
+  /**
+   * Handles form submission by combining data and proposed campuses and sending to the api
+   */
+  const submitForm = data => {
+    const completeData = {
+      ...data,
+      campus_ids: campuses.map(campus => campus.id),
+    }
+    requestDetails(completeData)
+  }
+
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(requestDetails)}>
+      <form onSubmit={methods.handleSubmit(submitForm)}>
         <Flex justify='center'>
           <VStack spacing={8} w='60%'>
             <VStack spacing={6} w='full'>

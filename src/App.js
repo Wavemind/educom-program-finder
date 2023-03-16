@@ -67,7 +67,13 @@ const App = () => {
     } else if (step === STEPS.adultForm) {
       return <AdultForm submitForm={submitForm} setStep={setStep} />
     } else if (step === STEPS.detailsForm) {
-      return <DetailsForm setStep={setStep} selectedForm={selectedForm} />
+      return (
+        <DetailsForm
+          setStep={setStep}
+          selectedForm={selectedForm}
+          campuses={campuses}
+        />
+      )
     }
   }, [step])
 
