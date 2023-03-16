@@ -1,0 +1,10 @@
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0.4rem;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+}
