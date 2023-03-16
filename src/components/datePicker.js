@@ -1,6 +1,7 @@
 /**
  * The external imports
  */
+import { useEffect } from 'react'
 import {
   HStack,
   Input as ChakraInput,
@@ -9,12 +10,14 @@ import {
   useConst,
   FormControl,
 } from '@chakra-ui/react'
-import ReactDatePicker from 'react-datepicker'
+import ReactDatePicker, { registerLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import getYear from 'date-fns/getYear'
 import getMonth from 'date-fns/getMonth'
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { Controller, useFormContext } from 'react-hook-form'
+import fr from 'date-fns/locale/fr'
+import { useTranslation } from 'react-i18next'
 
 /**
  * The internal imports
@@ -23,6 +26,7 @@ import { months } from '../lib/config/constants'
 import '../lib/stylesheets/datePicker.css'
 
 const DatePicker = ({ name, isRequired = false, placeholder }) => {
+  const { t } = useTranslation()
   const {
     control,
     formState: { errors },
@@ -39,6 +43,11 @@ const DatePicker = ({ name, isRequired = false, placeholder }) => {
     return yearsArray
   })
 
+  // TODO : Link this to website locale, like we will do with the language
+  useEffect(() => {
+    registerLocale('fr', fr)
+  }, [])
+
   return (
     <FormControl isInvalid={errors[name]} isRequired={isRequired}>
       <Controller
@@ -51,6 +60,8 @@ const DatePicker = ({ name, isRequired = false, placeholder }) => {
             dateFormat='dd.MM.yyyy'
             placeholderText={placeholder}
             showPopperArrow={false}
+            filterDate={date => date < new Date()}
+            locale='fr'
             customInput={
               <ChakraInput variant='filled' value={value} onChange={onChange} />
             }
@@ -90,7 +101,7 @@ const DatePicker = ({ name, isRequired = false, placeholder }) => {
                 >
                   {months.map(option => (
                     <option key={option} value={option}>
-                      {option}
+                      {t(`constants.months.${option}`)}
                     </option>
                   ))}
                 </Select>

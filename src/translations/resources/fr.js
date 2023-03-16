@@ -57,6 +57,20 @@ export default {
     success: 'Demande de détails envoyé',
   },
   constants: {
+    months: {
+      january: 'Janvier',
+      february: 'Février',
+      march: 'Mars',
+      april: 'Avril',
+      may: 'Mai',
+      june: 'Juin',
+      july: 'Juillet',
+      august: 'Aout',
+      september: 'Septembre',
+      october: 'Octobre',
+      november: 'Novembre',
+      december: 'Decembre',
+    },
     languages: {
       english: 'Anglais',
       german: 'Allemand',
