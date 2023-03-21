@@ -15,17 +15,37 @@ export default build =>
           $childLastName: String
           $childFirstName: String
           $childBirthDate: String
-          $campus_ids: [ID]
+          $selectedForm: String
+          $activities: [ID!]
+          $age: Int
+          $destination: [String!]
+          $duration: Int
+          $exam: String
+          $language: [String!]
+          $period: [String!]
+          $tripType: [String!]
+          $campusIds: [ID!]
         ) {
           requestDetails(
-            parentLastName: $parentLastName
-            parentFirstName: $parentFirstName
-            parentEmail: $parentEmail
-            parentPhone: $parentPhone
-            childLastName: $childLastName
-            childFirstName: $childFirstName
-            childBirthDate: $childBirthDate
-            campus_ids: $campus_ids
+            requestDetails: {
+              parentLastName: $parentLastName
+              parentFirstName: $parentFirstName
+              parentEmail: $parentEmail
+              parentPhone: $parentPhone
+              childLastName: $childLastName
+              childFirstName: $childFirstName
+              childBirthDate: $childBirthDate
+              selectedForm: $selectedForm
+              activities: $activities
+              age: $age
+              destination: $destination
+              duration: $duration
+              exam: $exam
+              language: $language
+              period: $period
+              tripType: $tripType
+              campusIds: $campusIds
+            }
           )
         }
       `,

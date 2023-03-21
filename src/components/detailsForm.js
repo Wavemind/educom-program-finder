@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { Input, DatePicker } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
-const DetailsForm = ({ setStep, selectedForm, campuses }) => {
+const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
   const { t } = useTranslation()
 
   const toast = useToast()
@@ -40,6 +40,7 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
   })
 
   useEffect(() => {
+    console.log(isSuccess)
     if (isSuccess) {
       toast({
         title: t('detailsForm.success'),
@@ -64,14 +65,17 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
   const submitForm = data => {
     const completeData = {
       ...data,
-      campus_ids: campuses.map(campus => campus.id),
+      ...searchData,
+      selectedForm,
+      childBirthDate: data.childBirthDate.toISOString(),
+      campusIds: campuses.map(campus => campus.id),
     }
     requestDetails(completeData)
   }
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(submitForm)}>
+      <form onSubmit={methods.handleSubmit(submitForm)} autoComplete='off'>
         <Flex justify='center'>
           <VStack spacing={8} w='60%'>
             <VStack spacing={6} w='full'>
@@ -117,7 +121,9 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
             </VStack>
             <SimpleGrid columns={3} w='full'>
               <HStack>
-                <Button onClick={goBack}>{t('common.back')}</Button>
+                <Button onClick={goBack} variant='text'>
+                  {t('common.back')}
+                </Button>
               </HStack>
               <HStack w='full' justifyContent='center'>
                 <Button type='submit'>{t('detailsForm.send')}</Button>

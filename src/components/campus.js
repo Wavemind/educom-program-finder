@@ -46,6 +46,7 @@ const Campus = ({ campus }) => {
         <Text
           fontSize='sm'
           sx={{
+            flexGrow: 1,
             ul: {
               marginX: 3,
               marginY: 1,

@@ -44,7 +44,7 @@ export default {
   detailsForm: {
     header: 'Détails des programmes',
     subheader:
-      'Pour recevoir les détails de nos programmes veuillez svp remplir le formulaire de recherche ci-dessous, vous recevrez une fichier PDF avec toutes les informations nécessaire qui vous permettront de prendre une décision sur celui qui convient le mieux aux besoins de votre enfant.',
+      'Pour recevoir les détails de nos programmes veuillez svp remplir le formulaire de recherche ci-dessous, vous recevrez un fichier PDF avec toutes les informations nécessaire qui vous permettront de prendre une décision sur celui qui convient le mieux aux besoins de votre enfant.',
     parentInformation: 'Informations du parent',
     childInformation: "Informations de l'enfant",
     no_date: 'Information indisponible',
@@ -57,6 +57,11 @@ export default {
     success: 'Demande de détails envoyé',
   },
   constants: {
+    activities: {
+      arts: 'Arts',
+      academics: 'Academics',
+      sports: 'Sports',
+    },
     months: {
       january: 'Janvier',
       february: 'Février',

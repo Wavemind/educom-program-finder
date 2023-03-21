@@ -29,6 +29,7 @@ import { STEPS } from './lib/config/constants'
 const App = () => {
   const { t } = useTranslation()
   const [step, setStep] = useState(STEPS.tripSelection)
+  const [searchData, setSearchData] = useState({})
   const [selectedForm, setSelectedForm] = useState(STEPS.juniorForm)
   const [loading, setLoading] = useState(false)
 
@@ -63,7 +64,13 @@ const App = () => {
         <TripSelection setStep={setStep} setSelectedForm={setSelectedForm} />
       )
     } else if (step === STEPS.juniorForm) {
-      return <JuniorForm submitForm={submitForm} setStep={setStep} />
+      return (
+        <JuniorForm
+          submitForm={submitForm}
+          setStep={setStep}
+          setSearchData={setSearchData}
+        />
+      )
     } else if (step === STEPS.adultForm) {
       return <AdultForm submitForm={submitForm} setStep={setStep} />
     } else if (step === STEPS.detailsForm) {
@@ -71,6 +78,7 @@ const App = () => {
         <DetailsForm
           setStep={setStep}
           selectedForm={selectedForm}
+          searchData={searchData}
           campuses={campuses}
         />
       )
