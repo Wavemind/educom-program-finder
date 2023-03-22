@@ -109,6 +109,21 @@ const JuniorForm = ({ submitForm, setStep }) => {
     submitForm(transformFormData(data))
   }
 
+  /**
+   * Sets the error object to display in the FormError component
+   */
+  const error = useMemo(() => {
+    if (isGetActivitiesError) {
+      return getActivitiesError
+    } else if (isGetCountriesError) {
+      return getCountriesError
+    } else if (isGetExamsError) {
+      return getExamsError
+    } else {
+      return null
+    }
+  }, [isGetActivitiesError, isGetCountriesError, isGetExamsError])
+
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -159,9 +174,7 @@ const JuniorForm = ({ submitForm, setStep }) => {
               name='exam'
             />
           </SimpleGrid>
-          {isGetActivitiesError && <FormError error={getActivitiesError} />}
-          {isGetCountriesError && <FormError error={getCountriesError} />}
-          {isGetExamsError && <FormError error={getExamsError} />}
+          {error && <FormError error={error} />}
         </VStack>
         <SimpleGrid columns={3} mt={10}>
           <HStack>
