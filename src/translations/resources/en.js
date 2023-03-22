@@ -117,4 +117,8 @@ export default {
       more: 'More',
     },
   },
+  validations: {
+    required: '${path} is required',
+    email: '${path} must be a valid email',
+  },
 }
