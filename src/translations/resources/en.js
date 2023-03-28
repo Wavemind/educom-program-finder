@@ -1,6 +1,8 @@
 export default {
   common: {
     back: 'Back',
+    error:
+      'Our search system is unavailable at the moment. Please try again later.',
   },
   tripSelection: {
     header: 'Trip type',

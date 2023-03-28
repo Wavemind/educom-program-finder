@@ -19,7 +19,7 @@ import * as yup from 'yup'
 /**
  * The internal imports
  */
-import { Input, DatePicker } from './'
+import { Input, DatePicker, FormError } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
 
 const DetailsForm = ({ setStep, selectedForm, campuses }) => {
@@ -27,7 +27,8 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
 
   const toast = useToast()
 
-  const [requestDetails, { isSuccess }] = useLazyRequestDetailsQuery()
+  const [requestDetails, { isSuccess, isError, error }] =
+    useLazyRequestDetailsQuery()
 
   const methods = useForm({
     resolver: yupResolver(
@@ -145,6 +146,7 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
                 isRequired
                 placeholder={t('detailsForm.birthDate')}
               />
+              {isError && <FormError error={error} />}
             </VStack>
             <SimpleGrid columns={3} w='full'>
               <HStack>
