@@ -32,7 +32,7 @@ const Input = ({ name, isRequired = false, placeholder }) => {
         )}
       />
 
-      <FormErrorMessage>
+      <FormErrorMessage fontSize='md'>
         {errors[name] && errors[name].message}
       </FormErrorMessage>
     </FormControl>

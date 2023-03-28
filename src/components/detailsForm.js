@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 /**
  * The internal imports
@@ -28,6 +30,35 @@ const DetailsForm = ({ setStep, selectedForm, campuses }) => {
   const [requestDetails, { isSuccess }] = useLazyRequestDetailsQuery()
 
   const methods = useForm({
+    resolver: yupResolver(
+      yup.object({
+        parentLastName: yup
+          .string()
+          .label(t('detailsForm.lastName'))
+          .required(t('validations.required')),
+        parentFirstName: yup
+          .string()
+          .label(t('detailsForm.firstName'))
+          .required(t('validations.required')),
+        parentEmail: yup
+          .string()
+          .label(t('detailsForm.email'))
+          .email(t('validations.email'))
+          .required(t('validations.required')),
+        childLastName: yup
+          .string()
+          .label(t('detailsForm.lastName'))
+          .required(t('validations.required')),
+        childFirstName: yup
+          .string()
+          .label(t('detailsForm.firstName'))
+          .required(t('validations.required')),
+        childBirthDate: yup
+          .date()
+          .label(t('detailsForm.birthDate'))
+          .required(t('validations.required')),
+      })
+    ),
     defaultValues: {
       parentLastName: '',
       parentFirstName: '',

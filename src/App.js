@@ -24,6 +24,7 @@ import {
   DetailsForm,
 } from './components'
 import { useLazyGetCampusesQuery } from './lib/services/modules/campus'
+import { validationTranslations } from './lib/utils/validationTranslations'
 import { STEPS } from './lib/config/constants'
 
 const App = () => {
@@ -44,6 +45,10 @@ const App = () => {
     setLoading(true)
     getCampuses(data)
   })
+
+  useEffect(() => {
+    validationTranslations(t)
+  }, [t])
 
   /**
    * Removes the loading state when response is received from the api
