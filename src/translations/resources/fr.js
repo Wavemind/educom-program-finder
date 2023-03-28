@@ -1,6 +1,8 @@
 export default {
   common: {
     back: 'Retour',
+    error:
+      'Notre systeme de recherche est indisponible pour le moment. Veuillez réessayer plus tard.',
   },
   tripSelection: {
     header: 'Type de séjour',
@@ -121,5 +123,9 @@ export default {
       threeWeeks: '3 semaines',
       more: 'Plus',
     },
+  },
+  validations: {
+    required: '${path} est obligatoire',
+    email: '${path} doit être une adresse email valid',
   },
 }

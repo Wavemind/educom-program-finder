@@ -1,6 +1,8 @@
 export default {
   common: {
     back: 'Back',
+    error:
+      'Our search system is unavailable at the moment. Please try again later.',
   },
   tripSelection: {
     header: 'Trip type',
@@ -121,5 +123,9 @@ export default {
       threeWeeks: '3 weeks',
       more: 'More',
     },
+  },
+  validations: {
+    required: '${path} is required',
+    email: '${path} must be a valid email',
   },
 }
