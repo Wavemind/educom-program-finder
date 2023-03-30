@@ -1,7 +1,7 @@
 /**
  * The external imports
  */
-import { Button, HStack } from '@chakra-ui/react'
+import { Button, Stack } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { STEPS } from '../lib/config/constants'
 
@@ -17,14 +17,18 @@ const TripSelection = ({ setStep, setSelectedForm }) => {
   }
 
   return (
-    <HStack w='full' justifyContent='center' spacing={6}>
+    <Stack
+      direction={{ base: 'column', md: 'row' }}
+      justifyContent='center'
+      spacing={6}
+    >
       <Button onClick={() => handleSelectStep(STEPS.juniorForm)}>
         {t('tripSelection.juniorCamp')}
       </Button>
       <Button onClick={() => handleSelectStep(STEPS.adultForm)}>
         {t('tripSelection.adultTrip')}
       </Button>
-    </HStack>
+    </Stack>
   )
 }
 

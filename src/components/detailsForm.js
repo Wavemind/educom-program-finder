@@ -108,7 +108,7 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(submitForm)} autoComplete='off'>
         <Flex justify='center'>
-          <VStack spacing={8} w='60%'>
+          <VStack spacing={8} w={{ base: 'full', md: '60%' }}>
             <VStack spacing={6} w='full'>
               <Text color='white' fontSize='xl'>
                 {t('detailsForm.parentInformation')}
@@ -151,13 +151,13 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
               />
               {isError && <FormError error={error} />}
             </VStack>
-            <SimpleGrid columns={3} w='full'>
+            <SimpleGrid columns={{ base: 2, md: 3 }} w='full'>
               <HStack>
                 <Button onClick={goBack} variant='text'>
                   {t('common.back')}
                 </Button>
               </HStack>
-              <HStack w='full' justifyContent='center'>
+              <HStack justifyContent={{ base: 'flex-end', md: 'center' }}>
                 <Button type='submit'>{t('detailsForm.send')}</Button>
               </HStack>
             </SimpleGrid>

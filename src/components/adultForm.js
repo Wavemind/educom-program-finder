@@ -2,7 +2,7 @@
  * The external imports
  */
 import { useMemo } from 'react'
-import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
+import { HStack, VStack, Button, SimpleGrid, Show } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -95,7 +95,7 @@ const AdultForm = ({ submitForm, setStep }) => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <VStack spacing={10} w='full' display='inline-block'>
-          <SimpleGrid columns={3} gap={10}>
+          <SimpleGrid columns={{ base: 1, xl: 3 }} gap={10}>
             <Select
               options={LANGUAGES}
               placeholder={t('adultForm.fields.language')}
@@ -115,15 +115,24 @@ const AdultForm = ({ submitForm, setStep }) => {
           </SimpleGrid>
           {error && <FormError error={error} />}
         </VStack>
-        <SimpleGrid columns={3} mt={10}>
-          <HStack>
-            <Button onClick={goBack} variant='text'>
-              {t('common.back')}
-            </Button>
+        <SimpleGrid columns={{ base: 1, md: 3 }} mt={10} spacing={4}>
+          <Show above='md'>
+            <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
+              <Button onClick={goBack} variant='text'>
+                {t('common.back')}
+              </Button>
+            </HStack>
+          </Show>
+          <HStack justifyContent='center'>
+            <Button type='submit'>{t('juniorForm.search')}</Button>
           </HStack>
-          <HStack w='full' justifyContent='center'>
-            <Button type='submit'>{t('adultForm.search')}</Button>
-          </HStack>
+          <Show below='sm'>
+            <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
+              <Button onClick={goBack} variant='text'>
+                {t('common.back')}
+              </Button>
+            </HStack>
+          </Show>
         </SimpleGrid>
       </form>
     </FormProvider>
