@@ -123,7 +123,7 @@ const App = () => {
   }, [loading, campuses, isError])
 
   return (
-    <Box w='full' bg='background' py={10} px={{ base: 6, xl: 96 }}>
+    <Box w='full' bg='background' py={10} px={{ base: 6, xl: 44, '2xl': 96 }}>
       <VStack spacing={8} w='full' mb={10}>
         <Heading variant='h1' textAlign='center'>
           {t(`${step}.header`)}
