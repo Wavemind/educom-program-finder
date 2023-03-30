@@ -72,7 +72,6 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
   })
 
   useEffect(() => {
-    console.log(isSuccess)
     if (isSuccess) {
       toast({
         title: t('detailsForm.success'),
