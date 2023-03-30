@@ -20,10 +20,10 @@ export default build =>
           $activities: [ID!]
           $age: Int
           $destination: [String!]
-          $duration: [ID!]
+          $duration: Int
           $exam: String
           $language: [String!]
-          $period: [String!]
+          $period: [ID!]
           $tripType: [String!]
         ) {
           getCampuses(

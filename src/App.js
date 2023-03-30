@@ -91,7 +91,7 @@ const App = () => {
     } else if (isError) {
       return (
         <Box w='full'>
-          <Text fontSize='md' color='error'>
+          <Text fontSize='md' color='error' textAlign='center'>
             {typeof error.message === 'string'
               ? error.message.split(':')[0]
               : error.data.errors.join()}
@@ -101,12 +101,12 @@ const App = () => {
     } else if (campuses.length > 0) {
       return (
         <VStack spacing={8}>
-          <SimpleGrid columns={3} spacing={14}>
+          <SimpleGrid columns={{ base: 1, xl: 3 }} spacing={14}>
             {campuses.map((campus, index) => (
               <Campus key={`campus_${index}`} campus={campus} />
             ))}
           </SimpleGrid>
-          <Text color='white' fontSize='md'>
+          <Text color='white' fontSize='md' textAlign='center'>
             {t('results.requestDetails')}
           </Text>
           <Button onClick={() => setStep('detailsForm')}>
@@ -115,21 +115,29 @@ const App = () => {
         </VStack>
       )
     }
-    return <Text color='white'>{t('results.noResults')}</Text>
+    return (
+      <Text color='white' textAlign='center'>
+        {t('results.noResults')}
+      </Text>
+    )
   }, [loading, campuses, isError])
 
   return (
-    <Box w='full' bg='background' py={10} px={96}>
+    <Box w='full' bg='background' py={10} px={{ base: 6, xl: 96 }}>
       <VStack spacing={8} w='full' mb={10}>
-        <Heading variant='h1'>{t(`${step}.header`)}</Heading>
-        <Heading variant='h2' w='50%' textAlign='center'>
+        <Heading variant='h1' textAlign='center'>
+          {t(`${step}.header`)}
+        </Heading>
+        <Heading variant='h2' textAlign='center'>
           {t(`${step}.subheader`)}
         </Heading>
       </VStack>
       {render}
       {![STEPS.tripSelection, STEPS.detailsForm].includes(step) && (
         <VStack w='full' spacing={8} mt={10}>
-          <Heading variant='h1'>{t('results.header')}</Heading>
+          <Heading variant='h1' textAlign='center'>
+            {t('results.header')}
+          </Heading>
           {renderResults}
         </VStack>
       )}

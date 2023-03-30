@@ -12,7 +12,11 @@ import formatDate from '../lib/utils/formatDate'
 const Campus = ({ campus }) => {
   const { t } = useTranslation()
   return (
-    <Box w='340px' display='flex' flexDirection='column'>
+    <Box
+      w={{ base: 'auto', md: '340px' }}
+      display='flex'
+      flexDirection='column'
+    >
       <Box h={220}>
         <Image
           objectFit='contain'

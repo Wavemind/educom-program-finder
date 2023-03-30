@@ -2,7 +2,7 @@
  * The external imports
  */
 import { useMemo } from 'react'
-import { HStack, VStack, Button, SimpleGrid } from '@chakra-ui/react'
+import { HStack, VStack, Button, SimpleGrid, Show } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -128,7 +128,7 @@ const JuniorForm = ({ submitForm, setStep }) => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <VStack spacing={10} w='full' display='inline-block'>
-          <SimpleGrid columns={3} gap={10}>
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={10}>
             <Select
               options={AGES}
               placeholder={t('juniorForm.fields.age')}
@@ -162,7 +162,7 @@ const JuniorForm = ({ submitForm, setStep }) => {
               name='period'
             />
           </SimpleGrid>
-          <SimpleGrid columns={2} gap={10}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={10}>
             <Select
               options={DURATIONS}
               placeholder={t('juniorForm.fields.duration')}
@@ -176,13 +176,20 @@ const JuniorForm = ({ submitForm, setStep }) => {
           </SimpleGrid>
           {error && <FormError error={error} />}
         </VStack>
-        <SimpleGrid columns={3} mt={10}>
-          <HStack>
-            <Button onClick={goBack}>{t('common.back')}</Button>
-          </HStack>
-          <HStack w='full' justifyContent='center'>
+        <SimpleGrid columns={{ base: 1, md: 3 }} mt={10} spacing={4}>
+          <Show above='md'>
+            <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
+              <Button onClick={goBack}>{t('common.back')}</Button>
+            </HStack>
+          </Show>
+          <HStack justifyContent='center'>
             <Button type='submit'>{t('juniorForm.search')}</Button>
           </HStack>
+          <Show below='sm'>
+            <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
+              <Button onClick={goBack}>{t('common.back')}</Button>
+            </HStack>
+          </Show>
         </SimpleGrid>
       </form>
     </FormProvider>
