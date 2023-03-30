@@ -36,7 +36,7 @@ const Campus = ({ campus }) => {
       >
         <Box>
           <Text fontSize='sm' fontWeight='bold'>
-            {campus.program.subtypeName} | ({campus.ageBegin} - {campus.ageEnd})
+            {campus.name}
           </Text>
           <Text fontSize='md' color='primary'>
             {campus.country.name}
@@ -52,6 +52,7 @@ const Campus = ({ campus }) => {
         <Text
           fontSize='sm'
           sx={{
+            flexGrow: 1,
             ul: {
               marginX: 3,
               marginY: 1,

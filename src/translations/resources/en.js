@@ -59,6 +59,11 @@ export default {
     success: 'Details request sent',
   },
   constants: {
+    activities: {
+      arts: 'Arts',
+      academics: 'Academics',
+      sports: 'Sports',
+    },
     months: {
       january: 'January',
       february: 'February',

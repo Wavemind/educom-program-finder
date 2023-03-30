@@ -25,7 +25,7 @@ import {
   STEPS,
 } from '../lib/config/constants'
 
-const JuniorForm = ({ submitForm, setStep }) => {
+const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
   const methods = useForm()
   const {
     t,
@@ -107,6 +107,7 @@ const JuniorForm = ({ submitForm, setStep }) => {
    */
   const onSubmit = data => {
     submitForm(transformFormData(data))
+    setSearchData(transformFormData(data))
   }
 
   /**
@@ -179,7 +180,9 @@ const JuniorForm = ({ submitForm, setStep }) => {
         <SimpleGrid columns={{ base: 1, md: 3 }} mt={10} spacing={4}>
           <Show above='md'>
             <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
-              <Button onClick={goBack}>{t('common.back')}</Button>
+              <Button onClick={goBack} variant='text'>
+                {t('common.back')}
+              </Button>
             </HStack>
           </Show>
           <HStack justifyContent='center'>
@@ -187,7 +190,9 @@ const JuniorForm = ({ submitForm, setStep }) => {
           </HStack>
           <Show below='sm'>
             <HStack justifyContent={{ base: 'center', md: 'flex-start' }}>
-              <Button onClick={goBack}>{t('common.back')}</Button>
+              <Button onClick={goBack} variant='text'>
+                {t('common.back')}
+              </Button>
             </HStack>
           </Show>
         </SimpleGrid>
