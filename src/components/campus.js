@@ -30,7 +30,7 @@ const Campus = ({ campus }) => {
       >
         <Box>
           <Text fontSize='sm' fontWeight='bold'>
-            {campus.program.subtypeName} | ({campus.ageBegin} - {campus.ageEnd})
+            {campus.name}
           </Text>
           <Text fontSize='md' color='primary'>
             {campus.country.name}

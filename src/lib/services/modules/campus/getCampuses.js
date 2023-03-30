@@ -23,7 +23,7 @@ export default build =>
           $duration: Int
           $exam: String
           $language: [String!]
-          $period: [String!]
+          $period: [ID!]
           $tripType: [String!]
         ) {
           getCampuses(
