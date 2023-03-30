@@ -50,9 +50,9 @@ export const TYPES = [
 ]
 
 export const PERIODS = [
-  { label: i18n.t('constants.periods.autumn'), value: 'autumn' },
-  { label: i18n.t('constants.periods.easter'), value: 'easter' },
-  { label: i18n.t('constants.periods.summer'), value: 'summer' },
+  { label: i18n.t('constants.periods.autumn'), value: 3 },
+  { label: i18n.t('constants.periods.easter'), value: 1 },
+  { label: i18n.t('constants.periods.summer'), value: 2 },
 ]
 
 export const DURATIONS = [

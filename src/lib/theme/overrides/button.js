@@ -18,7 +18,15 @@ export default {
         },
       },
       // styles for different visual variants ("outline", "solid")
-      variants: {},
+      variants: {
+        text: {
+          background: 'transparent',
+          color: 'white',
+          _hover: {
+            bg: 'primary',
+          },
+        },
+      },
       // default values for 'size', 'variant' and 'colorScheme'
       defaultProps: {},
     },

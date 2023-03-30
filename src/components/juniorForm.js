@@ -25,7 +25,7 @@ import {
   STEPS,
 } from '../lib/config/constants'
 
-const JuniorForm = ({ submitForm, setStep }) => {
+const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
   const methods = useForm()
   const {
     t,
@@ -107,6 +107,7 @@ const JuniorForm = ({ submitForm, setStep }) => {
    */
   const onSubmit = data => {
     submitForm(transformFormData(data))
+    setSearchData(transformFormData(data))
   }
 
   /**
@@ -178,7 +179,9 @@ const JuniorForm = ({ submitForm, setStep }) => {
         </VStack>
         <SimpleGrid columns={3} mt={10}>
           <HStack>
-            <Button onClick={goBack}>{t('common.back')}</Button>
+            <Button onClick={goBack} variant='text'>
+              {t('common.back')}
+            </Button>
           </HStack>
           <HStack w='full' justifyContent='center'>
             <Button type='submit'>{t('juniorForm.search')}</Button>

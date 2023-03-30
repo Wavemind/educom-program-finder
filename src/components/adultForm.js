@@ -117,7 +117,9 @@ const AdultForm = ({ submitForm, setStep }) => {
         </VStack>
         <SimpleGrid columns={3} mt={10}>
           <HStack>
-            <Button onClick={goBack}>{t('common.back')}</Button>
+            <Button onClick={goBack} variant='text'>
+              {t('common.back')}
+            </Button>
           </HStack>
           <HStack w='full' justifyContent='center'>
             <Button type='submit'>{t('adultForm.search')}</Button>
