@@ -11,6 +11,7 @@ import formatDate from '../lib/utils/formatDate'
 
 const Campus = ({ campus }) => {
   const { t } = useTranslation()
+
   return (
     <Box
       w={{ base: 'auto', md: '340px' }}
@@ -19,6 +20,7 @@ const Campus = ({ campus }) => {
     >
       <Box h={220}>
         <Image
+          w='full'
           objectFit='contain'
           src='https://api.lorem.space/image/drink?w=340&h=220'
           alt='Dan Abramov'
