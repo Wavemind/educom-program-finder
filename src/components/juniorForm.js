@@ -106,7 +106,7 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
    * Formats the countries obtained from the api
    */
   const formattedPeriods = useMemo(() => {
-    if (isGetCountriesSuccess) {
+    if (isGetPeriodsSuccess) {
       return periods.map(period => ({
         value: period.id,
         label: period.nameTranslations[language],
