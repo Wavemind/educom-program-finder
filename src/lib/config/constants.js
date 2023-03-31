@@ -24,7 +24,7 @@ export const AGES = Array.from({ length: 13 }, (_, i) => i + 6).map(age => ({
 }))
 
 export const LANGUAGES = [
-  { label: i18n.t('constants.languages.english'), value: 'en' },
+  { label: i18n.t('constants.languages.english'), value: 'gb' },
   { label: i18n.t('constants.languages.german'), value: 'de' },
   { label: i18n.t('constants.languages.spanish'), value: 'es' },
   { label: i18n.t('constants.languages.french'), value: 'fr' },
@@ -49,17 +49,11 @@ export const TYPES = [
   { label: i18n.t('constants.types.bohemian'), value: 'bohemian' },
 ]
 
-export const PERIODS = [
-  { label: i18n.t('constants.periods.autumn'), value: 3 },
-  { label: i18n.t('constants.periods.easter'), value: 1 },
-  { label: i18n.t('constants.periods.summer'), value: 2 },
-]
-
 export const DURATIONS = [
   { label: i18n.t('constants.durations.oneWeek'), value: 1 },
   { label: i18n.t('constants.durations.twoWeeks'), value: 2 },
   { label: i18n.t('constants.durations.threeWeeks'), value: 3 },
-  { label: i18n.t('constants.durations.more'), value: 0 },
+  { label: i18n.t('constants.durations.more'), value: 4 },
 ]
 
 export const STEPS = {

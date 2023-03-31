@@ -15,12 +15,12 @@ import {
   useGetActivitiesQuery,
   useGetCountriesQuery,
   useGetExamsQuery,
+  useGetPeriodsQuery,
 } from '../lib/services/modules/formData'
 import {
   AGES,
   LANGUAGES,
   TYPES,
-  PERIODS,
   DURATIONS,
   STEPS,
 } from '../lib/config/constants'
@@ -38,6 +38,13 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
     isError: isGetActivitiesError,
     error: getActivitiesError,
   } = useGetActivitiesQuery()
+
+  const {
+    data: periods,
+    isSuccess: isGetPeriodsSuccess,
+    isError: isGetPeriodsError,
+    error: getPeriodsError,
+  } = useGetPeriodsQuery()
 
   const {
     data: countries,
@@ -96,6 +103,19 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
   }, [isGetExamsSuccess, language])
 
   /**
+   * Formats the countries obtained from the api
+   */
+  const formattedPeriods = useMemo(() => {
+    if (isGetCountriesSuccess) {
+      return periods.map(period => ({
+        value: period.id,
+        label: period.nameTranslations[language],
+      }))
+    }
+    return []
+  }, [isGetPeriodsSuccess])
+
+  /**
    * Handles the back action and shows the trip selection component
    */
   const goBack = () => {
@@ -120,6 +140,8 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
       return getCountriesError
     } else if (isGetExamsError) {
       return getExamsError
+    } else if (isGetPeriodsError) {
+      return getPeriodsError
     } else {
       return null
     }
@@ -158,7 +180,7 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
               isMulti
             />
             <Select
-              options={PERIODS}
+              options={formattedPeriods}
               placeholder={t('juniorForm.fields.period')}
               name='period'
             />

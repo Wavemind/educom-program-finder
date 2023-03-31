@@ -112,11 +112,6 @@ export default {
       humanitarian: 'Humanitarian trip',
       bohemian: 'Traveling trip',
     },
-    periods: {
-      autumn: 'Autumn',
-      easter: 'Easter',
-      summer: 'Summer',
-    },
     durations: {
       oneWeek: '1 week',
       twoWeeks: '2 weeks',
