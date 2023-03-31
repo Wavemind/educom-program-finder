@@ -9,12 +9,12 @@ const FormError = ({ error }) => {
 
   return (
     <VStack w='full'>
-      <Text fontSize='md' color='error'>
+      <Text fontSize='md' color='error' textAlign='center'>
         {typeof error.message === 'string'
           ? error.message.split(':')[0]
           : error.data.errors.join()}
       </Text>
-      <Text fontSize='lg' color='white'>
+      <Text fontSize='lg' color='white' textAlign='center'>
         {t('common.error')}
       </Text>
     </VStack>
