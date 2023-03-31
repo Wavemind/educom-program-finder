@@ -103,7 +103,7 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
   }, [isGetExamsSuccess, language])
 
   /**
-   * Formats the countries obtained from the api
+   * Formats the periods obtained from the api
    */
   const formattedPeriods = useMemo(() => {
     if (isGetPeriodsSuccess) {
