@@ -46,6 +46,10 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
           .label(t('detailsForm.email'))
           .email(t('validations.email'))
           .required(t('validations.required')),
+        parentPhone: yup
+          .string()
+          .label(t('detailsForm.phone'))
+          .required(t('validations.required')),
         childLastName: yup
           .string()
           .label(t('detailsForm.lastName'))
@@ -128,7 +132,11 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
                 isRequired
                 placeholder={t('detailsForm.email')}
               />
-              <Input name='parentPhone' placeholder={t('detailsForm.phone')} />
+              <Input
+                name='parentPhone'
+                isRequired
+                placeholder={t('detailsForm.phone')}
+              />
             </VStack>
             <VStack spacing={4} w='full'>
               <Text color='white' fontSize='xl'>
