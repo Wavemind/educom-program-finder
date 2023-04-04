@@ -53,7 +53,7 @@ export default {
     lastName: 'Nom',
     firstName: 'Prénom',
     email: 'Adresse e-mail',
-    phone: 'Téléphone (optionnel)',
+    phone: 'Téléphone',
     birthDate: 'Date de naissance (JJ.MM.AAAA)',
     send: 'Envoyer',
     success: 'Demande de détails envoyé',

@@ -28,11 +28,16 @@ import { validationTranslations } from './lib/utils/validationTranslations'
 import { STEPS } from './lib/config/constants'
 
 const App = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [step, setStep] = useState(STEPS.tripSelection)
   const [searchData, setSearchData] = useState({})
   const [selectedForm, setSelectedForm] = useState(STEPS.juniorForm)
   const [loading, setLoading] = useState(false)
+
+  // const langInput = document.getElementById('lang')
+  if (i18n.language !== 'en') {
+    i18n.changeLanguage('en')
+  }
 
   const [
     getCampuses,

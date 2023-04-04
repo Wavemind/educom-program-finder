@@ -10,7 +10,9 @@ import { useTranslation } from 'react-i18next'
 import formatDate from '../lib/utils/formatDate'
 
 const Campus = ({ campus }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  console.log(i18n.language)
+  const lang = i18n.language === 'fr' ? 'fr' : 'en'
 
   return (
     <Box
@@ -42,10 +44,9 @@ const Campus = ({ campus }) => {
             {campus.country.name}
           </Text>
           <Text fontSize='sm' color='primary'>
-            {/* TO DO set locale */}
             {campus.firstDate && campus.lastDate
-              ? `${formatDate(campus.firstDate, 'fr')} - 
-            ${formatDate(campus.lastDate, 'fr')}`
+              ? `${formatDate(campus.firstDate, lang)} - 
+            ${formatDate(campus.lastDate, lang)}`
               : t('detailsForm.no_date')}
           </Text>
         </Box>
@@ -58,7 +59,12 @@ const Campus = ({ campus }) => {
               marginY: 1,
             },
           }}
-          dangerouslySetInnerHTML={{ __html: campus.publicDescriptionFr }}
+          dangerouslySetInnerHTML={{
+            __html:
+              lang === 'fr'
+                ? campus.publicDescriptionFr
+                : campus.publicDescriptionEn,
+          }}
         ></Text>
 
         <Text fontSize='sm'>{campus.price}</Text>

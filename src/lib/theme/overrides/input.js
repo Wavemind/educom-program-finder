@@ -9,8 +9,8 @@ export default {
       variants: {
         filled: {
           field: {
-            background: 'primary',
-            borderRadius: 'none',
+            background: 'primary !important',
+            borderRadius: 'none !important',
             border: 'none',
             cursor: 'pointer',
             color: 'white',

@@ -26,19 +26,17 @@ const Select = ({ options, placeholder, name, isMulti = false }) => {
           chakraStyles={{
             control: provided => ({
               ...provided,
-              background: 'primary',
-              borderRadius: 'none',
+              background: 'primary !important',
+              borderRadius: 'none !important',
               border: 'none',
               cursor: 'pointer',
               color: 'white',
               fontSize: 'md',
               height: '70px',
               _hover: {
-                // TODO : Check if there is a hover
                 bg: 'secondary',
               },
               _focus: {
-                // TODO : Check if there is a focus
                 bg: 'secondary',
               },
             }),
