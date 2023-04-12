@@ -9,8 +9,12 @@
   justify-content: space-between;
 }
 
-input[type='text'],
-input[type='text']:focus {
+#root input[type='text'],
+#root input[type='text']:focus {
   background-color: transparent;
   border: none;
+  transition: none;
+}
+#root input[type='text']::placeholder {
+  color: white;
 }

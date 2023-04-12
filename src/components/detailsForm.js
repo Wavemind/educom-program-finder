@@ -76,6 +76,10 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
   })
 
   useEffect(() => {
+    document.getElementById('root').scrollIntoView({ behavior: 'smooth' })
+  }, [])
+
+  useEffect(() => {
     if (isSuccess) {
       toast({
         title: t('detailsForm.success'),
