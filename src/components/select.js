@@ -39,10 +39,6 @@ const Select = ({ options, placeholder, name, isMulti = false }) => {
               _focus: {
                 bg: 'secondary !important',
               },
-              'input[type=text]:focus': {
-                borderRadius: 'none !important',
-                backgroundColor: 'transparent',
-              },
             }),
             groupHeading: provided => ({
               ...provided,
