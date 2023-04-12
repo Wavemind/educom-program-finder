@@ -34,9 +34,11 @@ const App = () => {
   const [selectedForm, setSelectedForm] = useState(STEPS.juniorForm)
   const [loading, setLoading] = useState(false)
 
-  // const langInput = document.getElementById('lang')
-  if (i18n.language !== 'en') {
-    i18n.changeLanguage('en')
+  const langInput = document.getElementById('lang')
+  const langValue = langInput?.dataset?.lang === 'fr' ? 'fr' : 'en'
+
+  if (i18n.language !== langValue) {
+    i18n.changeLanguage(langValue)
   }
 
   const [

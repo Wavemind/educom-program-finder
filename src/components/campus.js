@@ -24,7 +24,7 @@ const Campus = ({ campus }) => {
         <Image
           w='full'
           objectFit='contain'
-          src='https://api.lorem.space/image/drink?w=340&h=220'
+          src='https://picsum.photos/340/220'
           alt='Dan Abramov'
         />
       </Box>

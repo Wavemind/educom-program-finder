@@ -102,7 +102,7 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
       ...data,
       ...searchData,
       selectedForm,
-      childBirthDate: data.childBirthDate.toISOString(),
+      childBirthDate: data.childBirthDate.toString(),
       campusIds: campuses.map(campus => campus.id),
     }
     requestDetails(completeData)
