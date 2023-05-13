@@ -5,14 +5,14 @@ export default {
       'Our search system is unavailable at the moment. Please try again later.',
   },
   tripSelection: {
-    header: 'Trip type',
-    subheader: 'Begin by selecting the trip type for your child :',
-    juniorCamp: 'Junior Summer Camp (3 - 25 years)',
-    adultTrip: 'Linguistic trip (+16 years)',
+    header: '',
+    subheader: 'Please choose the type of programme you are looking for:',
+    juniorCamp: 'Junior Summer Camp (3-25 years old)',
+    adultTrip: 'Language Course (+16 years old)',
   },
   juniorForm: {
-    header: '',
-    subheader: 'Select the criteria for the desired program :',
+    header: 'Enter your search criteria',
+    subheader: 'You can select several options in each field.',
     fields: {
       age: "Participant's age",
       language: 'Languages',
@@ -21,30 +21,31 @@ export default {
       activities: 'Activities',
       period: 'Period',
       duration: 'Duration',
-      exam: 'Exams',
+      exam: 'Examens',
     },
-    search: 'Begin the search',
+    search: 'Search',
   },
   adultForm: {
     header: '',
     subheader: 'Select the criteria for the desired program :',
     fields: {
-      language: 'Languages',
-      destination: 'Destinations',
-      exam: 'Exams',
+      language: 'Language',
+      destination: 'Destination',
+      exam: 'Exam',
     },
     search: 'Begin the search',
   },
   results: {
-    header: 'The programs that we propose',
+    header:
+      'Please find a first selection of programmes according to your criteria:',
     noResults:
       'No criteria selected, please select criteria above and run a search',
-    requestDetailsButton: 'Request program details',
+    requestDetailsButton: 'Send me the programme details',
   },
   detailsForm: {
-    header: '',
+    header: 'Program details',
     subheader:
-      'Please fill out the form below to access the program details. You will receive an email providing access to your personal account, where you will find all the information regarding the selected trips (brochures, dates, prices). <br /> <br />Carol, Aurélie, or Victoria will also be in touch with you to assist you in making your choice and answer any questions you may have!',
+      'Please fill out the form below to view the programme details. You will receive an email giving you access to your personal space on our website, where you will find all the information regarding the selected courses (brochures, dates, prices).<br />Carol, Aurélie or Victoria will also be in contact with you to help you with your choice and answer your questions!',
     parentInformation: 'Parent Information',
     childInformation: 'Child Information',
     no_date: 'Information unavailable',

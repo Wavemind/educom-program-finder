@@ -6,13 +6,13 @@ export default {
   },
   tripSelection: {
     header: '',
-    subheader: 'Commencez par choisir le type de séjour pour votre enfant :',
-    juniorCamp: 'Summer Camp Junior (3 - 25 ans)',
-    adultTrip: 'Séjour linguistique (+16 ans)',
+    subheader: 'Choisissez le type de séjour pour votre enfant :',
+    juniorCamp: 'Summer Camp Junior (3-25 ans)',
+    adultTrip: 'Séjour Linguistique (+16 ans)',
   },
   juniorForm: {
     header: 'Critères de recherche',
-    subheader: 'Vous pouvez sélectionner plusieurs options par critère',
+    subheader: 'Vous pouvez sélectionner plusieurs options par critère.',
     fields: {
       age: "Âge de l'enfant",
       language: 'Langues',
@@ -36,7 +36,7 @@ export default {
     search: 'Lancer la recherche',
   },
   results: {
-    header: 'Voici une première sélection de programmes, selon vos critères :',
+    header: 'Voici une première sélection de programmes, selon vos critères :',
     noResults:
       'Aucun critère choisi, sélectionnez vos critères ci-dessus et lancez une recherche',
     requestDetailsButton: 'Recevoir les détails des programmes',
@@ -44,7 +44,7 @@ export default {
   detailsForm: {
     header: '',
     subheader:
-      'Merci de remplir le formulaire ci-dessous afin de consulter le détail des programmes. Vous recevrez un email vous donnant accès à votre espace personnel, sur lequel vous trouverez toutes les informations concernant les séjours sélectionnés (brochures, dates, prix). <br /> <br /> Carol, Aurélie ou Victoria seront également en contact avec vous pour vous aider dans votre choix et répondre à vos questions !',
+      'Merci de remplir le formulaire ci-dessous afin de consulter le détail des programmes. Vous recevrez un email vous donnant accès à votre espace personnel sur notre site, sur lequel vous trouverez toutes les informations concernant les séjours sélectionnés (brochures, dates, prix). <br /> <br /> Carol, Aurélie ou Victoria seront également en contact avec vous pour vous aider dans votre choix et répondre à vos questions !',
     parentInformation: 'Informations du parent',
     childInformation: "Informations de l'enfant",
     no_date: 'Information indisponible',
