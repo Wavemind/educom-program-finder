@@ -122,14 +122,14 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
                 {t('detailsForm.parentInformation')}
               </Text>
               <Input
-                name='parentLastName'
-                isRequired
-                placeholder={t('detailsForm.lastName')}
-              />
-              <Input
                 name='parentFirstName'
                 isRequired
                 placeholder={t('detailsForm.firstName')}
+              />
+              <Input
+                name='parentLastName'
+                isRequired
+                placeholder={t('detailsForm.lastName')}
               />
               <Input
                 name='parentEmail'
@@ -147,14 +147,14 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
                 {t('detailsForm.childInformation')}
               </Text>
               <Input
-                name='childLastName'
-                isRequired
-                placeholder={t('detailsForm.lastName')}
-              />
-              <Input
                 name='childFirstName'
                 isRequired
                 placeholder={t('detailsForm.firstName')}
+              />
+              <Input
+                name='childLastName'
+                isRequired
+                placeholder={t('detailsForm.lastName')}
               />
               <DatePicker
                 name='childBirthDate'

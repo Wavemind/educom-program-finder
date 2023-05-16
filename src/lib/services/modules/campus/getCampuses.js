@@ -45,6 +45,7 @@ export default build =>
             lastDate
             arrivalSchedule
             departureSchedule
+            mainImage
             publicDescriptionFr
             publicDescriptionEn
             program {

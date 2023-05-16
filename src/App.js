@@ -11,7 +11,7 @@ import {
   Button,
   CircularProgress,
 } from '@chakra-ui/react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 
 /**
  * The internal imports
@@ -121,9 +121,6 @@ const App = () => {
               <Campus key={`campus_${index}`} campus={campus} />
             ))}
           </SimpleGrid>
-          <Text color='white' fontSize='md' textAlign='center'>
-            {t('results.requestDetails')}
-          </Text>
           <Button onClick={() => setStep('detailsForm')}>
             {t('results.requestDetailsButton')}
           </Button>
@@ -138,21 +135,23 @@ const App = () => {
   }, [loading, campuses, isError])
 
   return (
-    <Box w='full' bg='background' py={10} px={{ base: 6, xl: 44, '2xl': 96 }}>
+    <Box w='full' bg='background' py={10} px={{ base: 6, xl: 36, '2xl': 60 }}>
       <VStack spacing={8} w='full' mb={10}>
         <Heading variant='h1' textAlign='center'>
           {t(`${step}.header`)}
         </Heading>
         <Heading variant='h2' textAlign='center'>
-          {t(`${step}.subheader`)}
+          <Trans i18nKey={`${step}.subheader`} />
         </Heading>
       </VStack>
       {render}
       {![STEPS.tripSelection, STEPS.detailsForm].includes(step) && (
         <VStack w='full' spacing={8} mt={10}>
-          <Heading variant='h1' textAlign='center'>
-            {t('results.header')}
-          </Heading>
+          {campuses.length > 0 && (
+            <Heading variant='h1' textAlign='center'>
+              {t('results.header')}
+            </Heading>
+          )}
           {renderResults}
         </VStack>
       )}

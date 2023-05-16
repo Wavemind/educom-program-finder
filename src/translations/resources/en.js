@@ -7,21 +7,21 @@ export default {
   tripSelection: {
     header: 'Trip type',
     subheader: 'Begin by selecting the trip type for your child :',
-    juniorCamp: 'Junior Summer Camp (6 - 18 years)',
-    adultTrip: 'Adult linguistic trip (16+ years)',
+    juniorCamp: 'Junior Summer Camp (3 - 25 years)',
+    adultTrip: 'Linguistic trip (+16 years)',
   },
   juniorForm: {
     header: 'Search criteria',
     subheader: 'Select the criteria for the desired program :',
     fields: {
       age: "Participant's age",
-      language: 'Language',
-      destination: 'Destination',
+      language: 'Languages',
+      destination: 'Destinations',
       tripType: 'Trip types',
       activities: 'Activities',
       period: 'Period',
       duration: 'Duration',
-      exam: 'Exam',
+      exam: 'Exams',
     },
     search: 'Begin the search',
   },
@@ -29,9 +29,9 @@ export default {
     header: 'Search criteria',
     subheader: 'Select the criteria for the desired program :',
     fields: {
-      language: 'Language',
-      destination: 'Destination',
-      exam: 'Exam',
+      language: 'Languages',
+      destination: 'Destinations',
+      exam: 'Exams',
     },
     search: 'Begin the search',
   },
@@ -39,14 +39,12 @@ export default {
     header: 'The programs that we propose',
     noResults:
       'No criteria selected, please select criteria above and run a search',
-    requestDetails:
-      'If one or more of these programmes interest you, you can request further details :',
     requestDetailsButton: 'Request program details',
   },
   detailsForm: {
-    header: 'Program details',
+    header: '',
     subheader:
-      "To receive details for the selected programs, please fill out the form below. You will then receive a PDF with the information necessary to make an informed decision on which program fits your child's needs the best",
+      'Please fill out the form below to access the program details. You will receive an email providing access to your personal account, where you will find all the information regarding the selected trips (brochures, dates, prices). <br /> <br />Carol, Aurélie, or Victoria will also be in touch with you to assist you in making your choice and answer any questions you may have!',
     parentInformation: 'Parent Information',
     childInformation: 'Child Information',
     no_date: 'Information unavailable',
