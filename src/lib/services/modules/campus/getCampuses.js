@@ -14,6 +14,7 @@ export default build =>
       language,
       period,
       tripType,
+      target,
     }) => ({
       document: gql`
         query (
@@ -25,6 +26,7 @@ export default build =>
           $language: [String!]
           $period: [ID!]
           $tripType: [String!]
+          $target: String!
         ) {
           getCampuses(
             activities: $activities
@@ -35,6 +37,7 @@ export default build =>
             language: $language
             period: $period
             tripType: $tripType
+            target: $target
           ) {
             id
             name
@@ -66,6 +69,7 @@ export default build =>
         language,
         period,
         tripType,
+        target,
       },
     }),
     transformResponse: response => response.getCampuses,

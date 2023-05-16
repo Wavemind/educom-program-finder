@@ -17,7 +17,7 @@ import {
   useGetExamsQuery,
 } from '../lib/services/modules/formData'
 
-const AdultForm = ({ submitForm, setStep }) => {
+const AdultForm = ({ submitForm, setStep, setSearchData }) => {
   const methods = useForm()
   const {
     t,
@@ -75,7 +75,9 @@ const AdultForm = ({ submitForm, setStep }) => {
    * Submits the form with the transformed from data
    */
   const onSubmit = data => {
-    submitForm(transformFormData(data))
+    const dataValues = transformFormData({ target: 'adult', ...data })
+    submitForm(dataValues)
+    setSearchData(dataValues)
   }
 
   /**
