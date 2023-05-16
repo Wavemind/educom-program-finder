@@ -11,7 +11,7 @@ export default {
     adultTrip: 'Linguistic trip (+16 years)',
   },
   juniorForm: {
-    header: 'Search criteria',
+    header: '',
     subheader: 'Select the criteria for the desired program :',
     fields: {
       age: "Participant's age",
@@ -26,7 +26,7 @@ export default {
     search: 'Begin the search',
   },
   adultForm: {
-    header: 'Search criteria',
+    header: '',
     subheader: 'Select the criteria for the desired program :',
     fields: {
       language: 'Languages',
