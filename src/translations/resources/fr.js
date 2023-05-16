@@ -8,7 +8,7 @@ export default {
     header: '',
     subheader: 'Commencez par choisir le type de séjour pour votre enfant :',
     juniorCamp: 'Summer Camp Junior (3 - 25 ans)',
-    adultTrip: 'Séjour linguistique adulte (16+ ans)',
+    adultTrip: 'Séjour linguistique (+16 ans)',
   },
   juniorForm: {
     header: 'Critères de recherche',
