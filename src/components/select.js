@@ -37,8 +37,14 @@ const Select = ({ options, placeholder, name, isMulti = false }) => {
                 bg: 'secondary',
               },
               _focus: {
-                bg: 'secondary',
+                bg: 'secondary !important',
               },
+            }),
+            groupHeading: provided => ({
+              ...provided,
+              backgroundColor: 'background',
+              paddingLeft: 3,
+              color: 'white',
             }),
             indicatorsContainer: provided => ({
               ...provided,

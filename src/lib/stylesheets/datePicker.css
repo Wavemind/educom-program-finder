@@ -9,7 +9,13 @@
   justify-content: space-between;
 }
 
-input[type='text'] {
+#root input[type='text'],
+#root input[type='text']:focus {
   background-color: transparent;
   border: none;
+  transition: none;
+  color: white;
+}
+#root input[type='text']::placeholder {
+  color: white;
 }

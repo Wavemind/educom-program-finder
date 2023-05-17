@@ -126,8 +126,9 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
    * Submits the form with the transformed from data
    */
   const onSubmit = data => {
-    submitForm(transformFormData(data))
-    setSearchData(transformFormData(data))
+    const dataValues = transformFormData({ target: 'junior', ...data })
+    submitForm(dataValues)
+    setSearchData(dataValues)
   }
 
   /**

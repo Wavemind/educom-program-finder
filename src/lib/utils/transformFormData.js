@@ -12,8 +12,10 @@ export default function (data) {
       formattedData[key] = null
     } else if (Array.isArray(value)) {
       formattedData[key] = value.map(entry => entry.value || null)
-    } else {
+    } else if (value.value) {
       formattedData[key] = value.value
+    } else {
+      formattedData[key] = value
     }
   })
   return formattedData
