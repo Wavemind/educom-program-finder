@@ -24,7 +24,11 @@ const Campus = ({ campus }) => {
           h='220'
           w='full'
           objectFit='cover'
-          src={campus.mainImage ? campus.mainImage : 'https://educom.ch/wp-content/uploads/2023/05/placeholder.jpg'}
+          src={
+            campus.mainImage
+              ? campus.mainImage
+              : 'https://educom.ch/wp-content/uploads/2023/05/placeholder.jpg'
+          }
           alt='Placeholder'
         />
       </Box>
