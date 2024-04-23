@@ -35,7 +35,7 @@ const App = () => {
   const [loading, setLoading] = useState(false)
 
   const langInput = document.getElementById('lang')
-  const langValue = langInput?.dataset?.lang === 'fr' ? 'fr' : 'en'
+  const langValue = langInput?.dataset?.lang
 
   if (i18n.language !== langValue) {
     i18n.changeLanguage(langValue)
