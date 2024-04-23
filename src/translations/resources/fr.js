@@ -56,6 +56,11 @@ export default {
     send: 'Envoyer',
     success: 'Demande de détails envoyé',
   },
+  success: {
+    header: '',
+    subheader:
+      "Merci d'avoir soumis votre demande de séjour linguistique pour votre enfant. Nous allons examiner votre demande et vous contacterons sous peu. Nous vous remercions de votre confiance.",
+  },
   constants: {
     activities: {
       arts: 'Arts',
