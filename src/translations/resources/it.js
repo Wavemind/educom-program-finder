@@ -57,6 +57,11 @@ export default {
     send: 'Send',
     success: 'Details request sent',
   },
+  success: {
+    header: '',
+    subheader:
+      'Thank you for submitting your request for a language trip for your child. We will review your request and contact you shortly. We appreciate your trust.',
+  },
   constants: {
     activities: {
       arts: 'Arts',

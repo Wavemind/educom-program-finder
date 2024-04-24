@@ -100,6 +100,8 @@ const App = () => {
           campuses={campuses}
         />
       )
+    } else if (step === STEPS.success) {
+      return null
     }
   }, [step])
 
@@ -151,7 +153,9 @@ const App = () => {
         </Heading>
       </VStack>
       {render}
-      {![STEPS.tripSelection, STEPS.detailsForm].includes(step) && (
+      {![STEPS.tripSelection, STEPS.detailsForm, STEPS.success].includes(
+        step
+      ) && (
         <VStack w='full' spacing={8} mt={10}>
           {campuses.length > 0 && (
             <Heading variant='h1' textAlign='center'>

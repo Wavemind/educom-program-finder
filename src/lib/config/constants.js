@@ -61,4 +61,5 @@ export const STEPS = {
   juniorForm: 'juniorForm',
   adultForm: 'adultForm',
   detailsForm: 'detailsForm',
+  success: 'success',
 }

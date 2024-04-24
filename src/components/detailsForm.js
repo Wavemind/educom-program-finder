@@ -9,7 +9,6 @@ import {
   Text,
   Button,
   Flex,
-  useToast,
 } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -21,11 +20,10 @@ import * as yup from 'yup'
  */
 import { Input, DatePicker, FormError } from './'
 import { useLazyRequestDetailsQuery } from '../lib/services/modules/details'
+import { STEPS } from '../lib/config/constants'
 
 const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
   const { t } = useTranslation()
-
-  const toast = useToast()
 
   const [requestDetails, { isSuccess, isError, error }] =
     useLazyRequestDetailsQuery()
@@ -81,13 +79,7 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast({
-        title: t('detailsForm.success'),
-        status: 'success',
-        position: 'bottom-right',
-        duration: 5000,
-      })
-      methods.reset()
+      setStep(STEPS.success)
     }
   }, [isSuccess])
 
