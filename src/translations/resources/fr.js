@@ -59,7 +59,7 @@ export default {
   success: {
     header: '',
     subheader:
-      "Merci d'avoir soumis votre demande de séjour linguistique pour votre enfant. Nous allons examiner votre demande et vous contacterons sous peu. Nous vous remercions de votre confiance.",
+      'Nous vous remercions pour votre demande. Vous avez reçu un email automatique vous donnant accès à votre page personnelle pour accéder aux détails des programmes sélectionnés.<br /> Nous allons également examiner votre demande et la compléter selon les besoins identifiés. Nous vous remercions de votre confiance !',
   },
   constants: {
     activities: {
@@ -88,21 +88,20 @@ export default {
       french: 'Français',
     },
     destinations: {
-      germany: 'Allemagne',
-      england: 'Angleterre',
-      australia: 'Australie',
-      austria: 'Autriche',
-      belgium: 'Belgique',
-      canada: 'Canada',
-      spain: 'Espagne',
-      france: 'France',
-      ireland: 'Irlande',
-      italy: 'Italie',
-      malta: 'Malte',
-      newZealand: 'Nouvelle Zélande',
-      switzerland: 'Suisse',
-      usa: 'USA',
-      other: 'Autre',
+      de: 'Allemagne',
+      en: 'Angleterre',
+      at: 'Autriche',
+      be: 'Belgique',
+      ca: 'Canada',
+      es: 'Espagne',
+      fr: 'France',
+      ir: 'Irlande',
+      it: 'Italie',
+      ma: 'Malte',
+      pt: 'Portugal',
+      nz: 'Nouvelle Zélande',
+      ch: 'Suisse',
+      us: 'USA',
     },
     types: {
       standardSummer:

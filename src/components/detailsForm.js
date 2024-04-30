@@ -74,12 +74,25 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
   })
 
   useEffect(() => {
-    document.getElementById('root').scrollIntoView({ behavior: 'smooth' })
+    const form = document.getElementById('recommandation-form')
+    if (form) {
+      document
+        .getElementById('recommandation-form')
+        .scrollIntoView({ behavior: 'smooth' })
+    }
   }, [])
 
   useEffect(() => {
     if (isSuccess) {
       setStep(STEPS.success)
+      const form = document.getElementById('recommandation-form')
+      if (form) {
+        document.getElementById('recommandation-form').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'start',
+        })
+      }
     }
   }, [isSuccess])
 
@@ -94,12 +107,15 @@ const DetailsForm = ({ setStep, selectedForm, campuses, searchData }) => {
    * Handles form submission by combining data and proposed campuses and sending to the api
    */
   const submitForm = data => {
+    const langInput = document.getElementById('lang')
+    const langValue = langInput?.dataset?.lang === 'fr' ? 'fr' : 'en'
     const completeData = {
       ...data,
       ...searchData,
       selectedForm,
       childBirthDate: data.childBirthDate.toString(),
       campusIds: campuses.map(campus => campus.id),
+      userLanguage: langValue,
     }
     requestDetails(completeData)
   }

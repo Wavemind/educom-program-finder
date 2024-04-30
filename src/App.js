@@ -35,11 +35,7 @@ const App = () => {
   const [loading, setLoading] = useState(false)
 
   const langInput = document.getElementById('lang')
-  const langValue = langInput?.dataset?.lang
-
-  if (i18n.language !== langValue) {
-    i18n.changeLanguage(langValue)
-  }
+  const langValue = langInput?.dataset?.lang === 'fr' ? 'fr' : 'en'
 
   const [
     getCampuses,
@@ -56,6 +52,9 @@ const App = () => {
 
   useEffect(() => {
     validationTranslations(t)
+    if (i18n.language !== langValue) {
+      i18n.changeLanguage(langValue)
+    }
   }, [t])
 
   /**

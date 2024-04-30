@@ -60,7 +60,7 @@ export default {
   success: {
     header: '',
     subheader:
-      'Thank you for submitting your request for a language trip for your child. We will review your request and contact you shortly. We appreciate your trust.',
+      'Thank you for submitting your request. You have received an automated message giving you access to your personal page where you will be able to access the details for the selected camps.<br /> We will also analyse your request internally and complete if according to the needs identified. Thank you for your interest.',
   },
   constants: {
     activities: {
@@ -89,21 +89,20 @@ export default {
       french: 'French',
     },
     destinations: {
-      germany: 'Germany',
-      england: 'England',
-      australia: 'Australia',
-      austria: 'Austria',
-      belgium: 'Belgium',
-      canada: 'Canada',
-      spain: 'Spain',
-      france: 'France',
-      ireland: 'Irelande',
-      italy: 'Italy',
-      malta: 'Malta',
-      newZealand: 'New Zealand',
-      switzerland: 'Switzerland',
-      usa: 'USA',
-      other: 'Other',
+      de: 'Germany',
+      en: 'England',
+      at: 'Austria',
+      be: 'Belgium',
+      ca: 'Canada',
+      es: 'Spain',
+      fr: 'France',
+      ir: 'Irelande',
+      it: 'Italy',
+      pt: 'Portugal',
+      ma: 'Malta',
+      nz: 'New Zealand',
+      ch: 'Switzerland',
+      us: 'USA',
     },
     types: {
       standardSummer:

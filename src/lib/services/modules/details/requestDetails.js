@@ -25,6 +25,7 @@ export default build =>
           $period: [ID!]
           $tripType: [String!]
           $campusIds: [ID!]
+          $userLanguage: String
         ) {
           requestDetails(
             requestDetails: {
@@ -45,6 +46,7 @@ export default build =>
               period: $period
               tripType: $tripType
               campusIds: $campusIds
+              userLanguage: $userLanguage
             }
           )
         }

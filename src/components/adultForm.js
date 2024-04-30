@@ -45,7 +45,7 @@ const AdultForm = ({ submitForm, setStep, setSearchData }) => {
     if (isGetCountriesSuccess) {
       return countries.map(country => ({
         value: country.id,
-        label: country.name,
+        label: t(`constants.destinations.${country.code}`),
       }))
     }
     return []

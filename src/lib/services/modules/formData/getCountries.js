@@ -10,7 +10,7 @@ export default build =>
         query ($target: String!) {
           getCountries(target: $target) {
             id
-            name
+            code
           }
         }
       `,

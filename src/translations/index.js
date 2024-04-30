@@ -8,6 +8,8 @@ import { initReactI18next } from 'react-i18next'
  * The internal imports
  */
 import * as resources from './resources'
+const langInput = document.getElementById('lang')
+const langValue = langInput?.dataset?.lang === 'fr' ? 'fr' : 'en'
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -21,8 +23,7 @@ i18n.use(initReactI18next).init({
       {}
     ),
   },
-  // TODO : Align with wordpress to have the same default language
-  lng: 'fr',
+  lng: langValue,
 })
 
 export default i18n
