@@ -3,6 +3,10 @@ export default {
     back: 'Retour',
     error:
       'Notre systeme de recherche est indisponible pour le moment. Veuillez réessayer plus tard.',
+    updating:
+      'Nos partenaires sont en train de travailler sur leurs programmes pour l’été 2025.',
+    information:
+      'Il se peut que toutes les informations ne soient pas encore à jour.',
   },
   tripSelection: {
     header: '',
