@@ -3,6 +3,9 @@ export default {
     back: 'Back',
     error:
       'Our search system is unavailable at the moment. Please try again later.',
+    updating:
+      'Our partners are currently working on their programmes for the summer of 2025.',
+    information: 'All the information may not be up to date yet.',
   },
   tripSelection: {
     header: '',
