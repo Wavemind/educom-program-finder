@@ -228,10 +228,10 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
         </SimpleGrid>
         <VStack mt={4}>
           <Text fontSize='lg' color='white'>
-            {t('common.updating')}
+            {t('juniorForm.updating')}
           </Text>
           <Text fontSize='lg' color='white'>
-            {t('common.information')}
+            {t('juniorForm.information')}
           </Text>
         </VStack>
       </form>
