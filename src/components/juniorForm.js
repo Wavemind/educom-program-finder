@@ -2,14 +2,7 @@
  * The external imports
  */
 import { useMemo } from 'react'
-import {
-  HStack,
-  VStack,
-  Button,
-  SimpleGrid,
-  Show,
-  Text,
-} from '@chakra-ui/react'
+import { HStack, VStack, Button, SimpleGrid, Show } from '@chakra-ui/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
@@ -226,14 +219,6 @@ const JuniorForm = ({ submitForm, setStep, setSearchData }) => {
             </HStack>
           </Show>
         </SimpleGrid>
-        <VStack mt={4}>
-          <Text fontSize='lg' color='white'>
-            {t('juniorForm.updating')}
-          </Text>
-          <Text fontSize='lg' color='white'>
-            {t('juniorForm.information')}
-          </Text>
-        </VStack>
       </form>
     </FormProvider>
   )

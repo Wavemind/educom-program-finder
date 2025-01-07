@@ -23,10 +23,6 @@ export default {
       duration: 'Durée du séjour',
       exam: 'Examens',
     },
-    updating:
-      'Nos partenaires sont en train de travailler sur leurs programmes pour l’été 2025.',
-    information:
-      'Il se peut que toutes les informations ne soient pas encore à jour.',
     search: 'Lancer la recherche',
   },
   adultForm: {
