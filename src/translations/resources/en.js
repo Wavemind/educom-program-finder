@@ -7,8 +7,8 @@ export default {
   tripSelection: {
     header: '',
     subheader: 'Choose the type of programme for your child :',
-    juniorCamp: 'Junior Summer Camp (3-25 yo)',
-    adultTrip: 'Language Course (+16 yo)',
+    juniorCamp: 'Junior Programme',
+    adultTrip: 'Adult Programme',
   },
   juniorForm: {
     header: 'Enter your search criteria',
